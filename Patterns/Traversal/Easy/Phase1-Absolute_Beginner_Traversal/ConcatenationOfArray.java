@@ -33,6 +33,12 @@ Steps:
 2. Take input nums[].
 3. Store nums.length() in n.
 4. Create res[] of size 2*n.
+5. For i=0 to 2*n.
+6. If i < n. 
+7. Add res[i] = nums[i]; 
+8. Else res[i] = nums[i-n];
+9. Return res[].
+10. Stop.
 */
 
 package Traversal;
