@@ -157,7 +157,7 @@ Very important for interviews.
 
 ## Problems
 
-1. Fizz Buzz  
+1. [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/description/)  
 2. Concatenation of Array  
 3. Shuffle the Array  
 4. To Lower Case  
