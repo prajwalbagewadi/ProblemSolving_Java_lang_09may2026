@@ -37,7 +37,8 @@ Steps:
 9. Else if i%3 == 0.
 10. Add "Fizz" to List.
 11. Else convert i to String and add to List.
-12. Stop. 
+12. Return List<String> out.
+13. Stop. 
 */
 
 
