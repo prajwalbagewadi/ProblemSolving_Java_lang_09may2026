@@ -57,3 +57,18 @@ public class ToLowerCase {
         System.out.println(sol.toLowerCase(s));
     }
 }
+
+//notes:
+/*
+Because in the ASCII table, uppercase and lowercase English letters are stored with a fixed gap of 32.
+Example:
+A = 65
+a = 97
+Difference:
+Same for:
+H = 72
+h = 104
+So computers were designed so that:
+adding 32 converts uppercase → lowercase
+subtracting 32 converts lowercase → u
+*/
