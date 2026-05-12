@@ -178,7 +178,7 @@ Very important for interviews.
 1. [Fizz Buzz](https://leetcode.com/problems/fizz-buzz/description/)
 2. [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/description/)
 3. [Shuffle the Array](https://leetcode.com/problems/shuffle-the-array/description/)
-4. To Lower Case
+4. [To Lower Case](https://leetcode.com/problems/to-lower-case/description/)
 5. Defanging an IP Address
 
 ## You Learn

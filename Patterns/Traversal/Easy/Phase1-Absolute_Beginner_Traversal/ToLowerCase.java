@@ -25,18 +25,34 @@ s consists of printable ASCII characters.
 /*
 Steps:
 1. Start.
-n. Stop.
+2. Take String input s.
+3. Create new StringBuilder variable sb.
+4. For each char c in String s using s.toCharArray().  
+5. If c is >= 'A' and c <= 'Z'.
+6. Type cast (char) c+32 and append it to sb.
+7. else directly append c to sb.
+8. Convert sb to String and return.
+9. Stop.
 */
 
 class Solution3 {
     public String toLowerCase(String s) {
-      return "";  
+        StringBuilder sb = new StringBuilder();
+        for(char c : s.toCharArray()) {
+            if(c >= 'A' && c <= 'Z') {
+                sb.append((char)(c+32));
+            }
+            else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 }
 
-class Main {
+public class ToLowerCase {
     public static void main(String[] args) {
-        String s = "HELLO";
+        String s = "Hello";
         Solution3 sol = new Solution3();
         System.out.println(sol.toLowerCase(s));
     }
