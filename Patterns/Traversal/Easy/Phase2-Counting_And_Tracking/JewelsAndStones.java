@@ -21,6 +21,21 @@ jewels and stones consist of only English letters.
 All the characters of jewels are unique.
 */
 
+/*
+Steps:
+1. Start
+2. Take String input jewels, stones.
+3. Convert jewels toCharArray() and Store in a new char[ ] j.
+4. Create int[ ] sfreq to store frequency of characters and allocate size int[256] as ascii characters range from 0 to 255.
+5. Create a int var count = 0.
+6. For char c in stones.toCharArray()
+7. At sfreq[c] = increment the count from 0 to count++, the char c is automatically converted to its int value, which is used as the array index. And then the count is increamented.
+8. For char c in array j.
+9. Add count = count + value at index sfreq[c].
+10. Return count.
+11. Stop.
+*/
+
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
         char[] j = jewels.toCharArray();
