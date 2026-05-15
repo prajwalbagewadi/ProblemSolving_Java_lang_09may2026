@@ -21,11 +21,36 @@ jewels and stones consist of only English letters.
 All the characters of jewels are unique.
 */
 
-class JewelsAndStones {
-    public static void main() {
-
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+        char[] j = jewels.toCharArray();
+        int[] sfreq = new int[256];
+        int count = 0;
+        
+        for(char c : stones.toCharArray()) {
+            sfreq[c]++;
+        }
+        for(char c : j) {
+            count = count + sfreq[c];
+        }
+        return count;
     }
 }
+
+
+class JewelsAndStones {
+    public static void main(String[] args) {
+       Solution sol = new Solution();
+       String jewels = "aA";
+       String stones = "aAAbbbb";
+       System.out.println(sol.numJewelsInStones(jewels, stones));
+    }
+}
+
+/*
+Output:
+3
+*/
 
 //Notes
 
