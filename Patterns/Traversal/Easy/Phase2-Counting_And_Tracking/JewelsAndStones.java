@@ -41,8 +41,10 @@ class Solution {
 class JewelsAndStones {
     public static void main(String[] args) {
        Solution sol = new Solution();
-       String jewels = "aA";
-       String stones = "aAAbbbb";
+       //String jewels = "aA";
+       //String stones = "aAAbbbb";
+       String jewels = "z";
+       String stones = "ZZ";
        System.out.println(sol.numJewelsInStones(jewels, stones));
     }
 }
@@ -50,6 +52,11 @@ class JewelsAndStones {
 /*
 Output:
 3
+*/
+
+/*
+Output:
+0
 */
 
 //Notes
