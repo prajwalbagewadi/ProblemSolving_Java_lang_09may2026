@@ -43,3 +43,15 @@ class Main {
         System.out.println(s.mostWordsFound);
     }
 }
+
+/*
+Notes:
+Because in a normal sentence. Words are separated by spaces.
+
+So:
+1 space = 2 words
+2 spaces = 3 words
+3 spaces = 4 words
+
+Hence: spaces+1;
+*/
