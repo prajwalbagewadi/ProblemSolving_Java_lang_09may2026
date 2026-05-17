@@ -32,17 +32,51 @@ All the words in sentences[i] are separated by a single space.
 
 class Solution {
     public int mostWordsFound(String[] sentences) {
+        int[] maxWordsFound = new int[sentences.length];
+        int i = 0;
         
+        for(String s: sentences){
+            int count = 1;
+            for(char c : s.toCharArray()) {
+                if(c == ' ') {
+                    count++;
+                }
+            }
+            maxWordsFound[i] = count;
+            System.out.println(maxWordsFound[i]);
+            i++;
+        }
+        
+        int max = maxWordsFound[0];
+        
+        for(int value: maxWordsFound) {
+            if(value > max) {
+                max = value;
+            }
+        }
+        
+        return max;    
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        String[] sen = {"alice and bob love leetcode","i think so too","this is great thanks very much"};
+       // String[] sen = {"alice and bob love leetcode","i think so too","this is great thanks very much"};
+      String[] sen = {"please wait", "continue to fight", "continue to win"};
         Solution s = new Solution();
-        System.out.println(s.mostWordsFound);
+        System.out.println("mostWordsFound:"+s.mostWordsFound(sen));
     }
 }
+
+/*
+Output:
+2
+3
+3
+mostWordsFound:3
+
+=== Code Execution Successful ===
+*/
 
 /*
 Notes:
