@@ -202,7 +202,7 @@ Very important for interviews.
 
 6. [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/)
 7. [Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
-8. Maximum Number of Words Found in Sentences
+8. [Maximum Number of Words Found in Sentences](https://leetcode.com/problems/maximum-number-of-words-found-in-sentences/description/)
 9. Kids With the Greatest Number of Candies
 
 ## You Learn
