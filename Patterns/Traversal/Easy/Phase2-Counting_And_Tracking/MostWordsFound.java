@@ -30,10 +30,28 @@ sentences[i] does not have leading or trailing spaces.
 All the words in sentences[i] are separated by a single space.
 */
 
+/*
+steps:
+1. Start.
+2. Take input String[] sentences.
+3. Create int variable and set i=0.
+4. Create int variable and set max=0.
+5. For String s in sentences.
+6. Create int variable and set count=1.
+7. For char c in s.toCharArray().
+8. Check if c == ' ' (space).
+9. Increament count++.
+10. Check if count > max.
+11. Set max = count.
+12. Increament i++.
+13. Return max.
+14. Stop.
+*/
+
 class Solution {
     public int mostWordsFound(String[] sentences) {
-        int[] maxWordsFound = new int[sentences.length];
         int i = 0;
+        int max = 0;
         
         for(String s: sentences){
             int count = 1;
@@ -42,19 +60,12 @@ class Solution {
                     count++;
                 }
             }
-            maxWordsFound[i] = count;
-            System.out.println(maxWordsFound[i]);
-            i++;
-        }
-        
-        int max = maxWordsFound[0];
-        
-        for(int value: maxWordsFound) {
-            if(value > max) {
-                max = value;
+           //System.out.println(count);
+            if(count > max) {
+                max = count;
             }
-        }
-        
+            i++;
+        }    
         return max;    
     }
 }
