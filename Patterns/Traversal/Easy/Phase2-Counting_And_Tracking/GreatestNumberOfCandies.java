@@ -41,14 +41,16 @@ Steps:
 1. Start.
 2. Take input int[] candies and int extraCandies.
 3. Create new ArrayList<Boolean> list.
-4. Create int max and set it as candies[0]+extraCandies.
-5. For int i in candies.
-6. Check if i+extraCandies >= max.
+4. Create new int variable max and set it to candies[0].
+5. For i in candies
+6. Check if i > max.
 7. Set max = i.
-8. Add true in list.
-9. Else add false in list.
-10. Return list.
-11. Stop.
+8. For i in candies.
+9. Check if i+extraCandies >= max.
+10. Add true in list.
+11. Else add false in list.
+12. Return list.
+13. Stop.
 */
 
 import java.util.List;
@@ -57,10 +59,14 @@ import java.util.ArrayList;
 class Solution {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> list = new ArrayList<Boolean>();
-        int max = candies[0]+extraCandies;
+        int max = candies[0];
+        for(int i: candies) {
+            if(i > max) {
+                max = i;
+            }
+        }
         for(int i : candies) {
             if(i+extraCandies >= max) {
-                max = i;
                 list.add(true);
             } 
             else {
@@ -77,7 +83,8 @@ class Main {
         Solution s = new Solution();
        // int[] c = {2,3,5,1,3};
        // int e = 3;
-       int[] c = {4,2,1,1,2};
+       //int[] c = {4,2,1,1,2};
+       int[] c = {2,8,7};
        int e = 1;
         List<Boolean> list = s.kidsWithCandies(c,e);
         for(Boolean o : list) {
@@ -85,6 +92,17 @@ class Main {
         }
     }
 }
+
+/*
+Notes:
+- First find the max in current array.
+- And compare element+extraCandies with max.
+
+Time Complexity:
+Loop 1 -> find max.
+Loop 2 -> build result.
+O(2n) = O(n) + O(n)
+*/
 
 /*
 Output:
