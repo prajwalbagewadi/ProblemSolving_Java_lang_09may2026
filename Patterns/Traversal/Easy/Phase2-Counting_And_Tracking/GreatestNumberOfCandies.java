@@ -35,6 +35,22 @@ n == candies.length
 1 <= candies[i] <= 100
 1 <= extraCandies <= 50
 */
+
+/*
+Steps:
+1. Start.
+2. Take input int[] candies and int extraCandies.
+3. Create new ArrayList<Boolean> list.
+4. Create int max and set it as candies[0]+extraCandies.
+5. For int i in candies.
+6. Check if i+extraCandies >= max.
+7. Set max = i.
+8. Add true in list.
+9. Else add false in list.
+10. Return list.
+11. Stop.
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -43,10 +59,12 @@ class Solution {
         List<Boolean> list = new ArrayList<Boolean>();
         int max = candies[0]+extraCandies;
         for(int i : candies) {
-            i = i+extraCandies;
-            if(i > max) {
+            if(i+extraCandies >= max) {
                 max = i;
                 list.add(true);
+            } 
+            else {
+                list.add(false);
             }
         }
         return list;
@@ -57,11 +75,29 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
-        int[] c = {2,3,5,1,3};
-        int e = 3;
+       // int[] c = {2,3,5,1,3};
+       // int e = 3;
+       int[] c = {4,2,1,1,2};
+       int e = 1;
         List<Boolean> list = s.kidsWithCandies(c,e);
         for(Boolean o : list) {
             System.out.println(o);
         }
     }
 }
+
+/*
+Output:
+Start small. Ship something.
+true
+false
+false
+false
+false
+*/
+
+/*
+Testcase failed:
+[2,8,7]
+1
+*/
