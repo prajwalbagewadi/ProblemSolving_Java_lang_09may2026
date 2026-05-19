@@ -223,7 +223,7 @@ Very important for interviews.
 
 ## Problems
 
-10. Running Sum of 1d Array
+10. [Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/description/)
 11. Find the Highest Altitude
 12. Richest Customer Wealth
 
