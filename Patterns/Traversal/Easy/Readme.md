@@ -225,7 +225,7 @@ Very important for interviews.
 
 10. [Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array/description/)
 11. [Find the Highest Altitude](https://leetcode.com/problems/find-the-highest-altitude/description/)
-12. Richest Customer Wealth
+12. [Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/description/)
 
 ## You Learn
 
