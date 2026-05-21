@@ -126,6 +126,31 @@ Test case failed:
 val = 2
 Expected:
 [0,1,4,0,3]
+
+0 1 2 3 4 5 6 7 
+[0,1,2,2,3,0,4,2]
+i=0
+k=0 swap k++ k=1
+[0]
+i=1
+k=1 swap k++ k=2
+[0,1]
+i=2
+k=2 noswap
+[0,1,2]
+i=3
+k=2 noswap
+[0,1,2,2]
+i=4
+k=2 swap k++ k=3
+[0,1,3,2]
+i=5
+k=3 swap k++ k=4
+[0,1,3,0,]
+i=6
+k=4 swap k++ k=5
+
+
 */
 
 
