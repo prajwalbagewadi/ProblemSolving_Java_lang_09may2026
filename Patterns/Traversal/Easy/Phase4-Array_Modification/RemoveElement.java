@@ -46,19 +46,30 @@ Constraints:
 0 <= val <= 100
 */
 
+/*
+Steps:
+1. Start.
+2. Take input array int[] nums and int val.
+3. Create a new var int k and set it to k=0.
+4. For i=0 to nums.length.
+5. Check if nums[i] != val.
+6. Set nums[i] = nums[i] + nums[k]. //swap
+7. Set nums[k] = nums[i] - nums[k].
+8. Set nums[i] = nums[i] - nums[k].
+9. Increament k++.
+10. Return k.
+11. Stop.
+*/
+
 class Solution {
     public int removeElement(int[] nums, int val) {
-        int temp,k=0;
+        int k=0;
         for(int i=0; i<nums.length; i++) {
-            if(nums[i] == val && i+1 < nums.length) {
-                temp = nums[i];
-                nums[i] = nums[i+1];
-                nums[i+1] = temp;
-            } 
-        }
-        for(int i : nums) {
-            if(i!=val) {
-                k++;
+            if(nums[i]!=val) {
+                nums[i] = nums[i] + nums[k];
+                nums[k] = nums[i] - nums[k];
+                nums[i] = nums[i] - nums[k];
+                k++; // k updates If condition is satisfied.
             }
         }
         return k;
@@ -75,3 +86,40 @@ class Main {
         System.out.println(s.removeElement(nums,val));
     }
 }
+
+/*
+Output:
+5
+
+=== Code Execution Successful ===
+*/
+
+/*
+Notes:
+inPlace: modify the Array without using extra space
+eg:
+[1,2,3] to [2,4,6]
+multiple each element in array by 2.
+
+Two Pointer: used Two Pointer approach to solve
+[0,1,2,2,3]
+i = 0
+k = 0 - swap condition satisfied k++
+i = 1
+k = 1 - swap condition satisfied k++
+i = 2 
+k = 1
+i = 3
+k = 1
+i = 4 swap with i = 4 with k = 1.
+k = 2 condition satisfied k++
+*/
+
+/*
+Test case failed:
+[0,1,2,2,3,0,4,2]
+val = 2
+*/
+
+
+
