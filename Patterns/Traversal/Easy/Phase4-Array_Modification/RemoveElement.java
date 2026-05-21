@@ -55,7 +55,7 @@ Steps:
 5. Check if nums[i] != val.
 6. Set temp = nums[i] //swap
 7. Set nums[i] = nums[k].
-8. Set nums[k] = nums[i].
+8. Set nums[k] = temp.
 9. Increament k++.
 10. Return k.
 11. Stop.
@@ -92,6 +92,12 @@ class Main {
         System.out.println(s.removeElement(nums,val));
     }
 }
+
+/* 
+Time Complexity:
+loop 1 -> check swap and build result.
+O(n)
+*/
 
 /*
 code running changed swapping logic to use third variable.
