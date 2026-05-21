@@ -50,12 +50,12 @@ Constraints:
 Steps:
 1. Start.
 2. Take input array int[] nums and int val.
-3. Create a new var int k and set it to k=0.
+3. Create a new var int k and set it to k=0 and new var temp.
 4. For i=0 to nums.length.
 5. Check if nums[i] != val.
-6. Set nums[i] = nums[i] + nums[k]. //swap
-7. Set nums[k] = nums[i] - nums[k].
-8. Set nums[i] = nums[i] - nums[k].
+6. Set temp = nums[i] //swap
+7. Set nums[i] = nums[k].
+8. Set nums[k] = nums[i].
 9. Increament k++.
 10. Return k.
 11. Stop.
@@ -63,18 +63,19 @@ Steps:
 
 class Solution {
     public int removeElement(int[] nums, int val) {
-        int k=0;
+        int k=0,temp;
         for(int i=0; i<nums.length; i++) {
             if(nums[i]!=val) {
-                nums[i] = nums[i] + nums[k];
-                nums[k] = nums[i] - nums[k];
-                nums[i] = nums[i] - nums[k];
+                temp = nums[i];
+                nums[i] = nums[k];
+                nums[k] = temp;
                 k++; // k updates If condition is satisfied.
             }
         }
-        for(int i : nums) {
-            System.out.print(" "+i);
-        }
+        //for(int i : nums) {
+        //    System.out.print(" "+i);
+        //}
+        //System.out.println();
         return k;
     }
 }
@@ -91,6 +92,15 @@ class Main {
         System.out.println(s.removeElement(nums,val));
     }
 }
+
+/*
+code running changed swapping logic to use third variable.
+Output:
+ 0 1 3 0 4 2 2 2
+5
+
+=== Code Execution Successful ===
+*/
 
 /*
 Output:
@@ -152,6 +162,5 @@ k=4 swap k++ k=5
 
 
 */
-
 
 
