@@ -72,6 +72,9 @@ class Solution {
                 k++; // k updates If condition is satisfied.
             }
         }
+        for(int i : nums) {
+            System.out.print(" "+i);
+        }
         return k;
     }
 }
@@ -80,6 +83,8 @@ class Main {
     public static void main(String[] args) {
         //int[] nums = {3,2,2,3};
         //int val = 3;
+        //int[] nums = {0,1,2,2,3,0,4,2};
+        //int val = 2;
         int[] nums = {0,1,2,2,3,0,4,2};
         int val = 2;
         Solution s = new Solution();
@@ -119,6 +124,8 @@ k = 2 condition satisfied k++
 Test case failed:
 [0,1,2,2,3,0,4,2]
 val = 2
+Expected:
+[0,1,4,0,3]
 */
 
 
