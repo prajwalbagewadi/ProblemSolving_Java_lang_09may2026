@@ -52,6 +52,68 @@ class Main {
 }
 
 /*
+notes:
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int[] out = new int[arr.length];
+        int k = 0;
+        while(k<arr.length) {
+            int max=arr[k+1];
+            for(int i=k+1; i<arr.length; i++) {
+                for(int j=k+1; j<arr.length; j++) {
+                   System.out.print(" "+arr[j]);
+                }
+                System.out.println();
+                if(arr[i]>max) {
+                    max=arr[i];
+                }
+            }    
+            out[k] = max;
+            System.out.println("out[k]="+out[k]);
+            k++;
+            System.out.println("k="+k);
+        }
+        return out;    
+        
+    }
+}
+*/
+/*
+output:
+ 18 5 4 6 1
+ 18 5 4 6 1
+ 18 5 4 6 1
+ 18 5 4 6 1
+ 18 5 4 6 1
+out[k]=18
+k=1
+ 5 4 6 1
+ 5 4 6 1
+ 5 4 6 1
+ 5 4 6 1
+out[k]=6
+k=2
+ 4 6 1
+ 4 6 1
+ 4 6 1
+out[k]=6
+k=3
+ 6 1
+ 6 1
+out[k]=6
+k=4
+ 1
+out[k]=1
+k=5
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 6 out of bounds for length 6
+	at Solution.replaceElements(Main.java:36)
+	at Main.main(Main.java:60)
+
+=== Code Exited With Errors ===
+*/
+
+/*
 Dry Run:
 [17,18,5,4,6,1]
 k=0 K=1 to length
