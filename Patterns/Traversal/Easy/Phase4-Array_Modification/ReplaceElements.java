@@ -53,6 +53,7 @@ class Main {
 
 /*
 notes:
+logic fails to handle edge case.
 class Solution {
     public int[] replaceElements(int[] arr) {
         int[] out = new int[arr.length];
