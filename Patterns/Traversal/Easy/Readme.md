@@ -270,7 +270,7 @@ Very important for interviews.
 
 ## Problems
 
-16. Goal Parser Interpretation
+16. [Goal Parser Interpretation](https://leetcode.com/problems/goal-parser-interpretation/description/)
 17. Valid Palindrome
 
 ## You Learn
