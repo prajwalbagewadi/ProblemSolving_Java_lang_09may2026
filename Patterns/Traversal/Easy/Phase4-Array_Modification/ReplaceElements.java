@@ -28,28 +28,60 @@ Constraints:
 1 <= arr[i] <= 105
 */
 
+/*
+Steps:
+1. Start.
+2. Take input int array int[] arr.
+3. Create new int array int[] out of length arr.length.
+4. Create new var int max and set it to max=out[arr.length-1] and set to out[arr.length-1] = -1 and Create a new var int k and set it to k = arr.length-2.
+5. For i = arr.length-1 to i>=0 (decreament i--).
+6. Check if arr[i] > max.
+7. Set max = arr[i];
+8. Check if k >= 0.
+9. Set out[k] = max.
+10. Decrement k--.
+11. return out.
+12. Stop.
+*/
+
 class Solution {
     public int[] replaceElements(int[] arr) {
-        int[] out = new arr.length;
-        int k = 0,max=arr[1];
-        for(int i=k+1; i<arr.length; i++) {
-           if(arr[i]>max) {
-            max=arr[i];
-           }
-           k++;
+        int[] out = new int[arr.length];
+        int max=out[arr.length-1]=-1,k=arr.length-2;
+        for(int i=arr.length-1; i>=0; i--) {
+            if(arr[i]>max) {
+                max = arr[i];
+            }
+            if(k>=0) {
+                out[k] = max;
+                k--;
+            }
         }
+        return out;    
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        Solution s = new Solution;
+        Solution s = new Solution();
         int[] arr = {17,18,5,4,6,1};
         for(int i : s.replaceElements(arr)) {
             System.out.print(" "+i);
         }
     }
 }
+
+/*
+Time Complexity:
+loop 1 -> start from right to left and check max and build result.
+O(n)
+*/
+
+/*
+output:
+ 18 6 6 6 1 -1
+=== Code Execution Successful ===
+*/
 
 /*
 notes:
@@ -119,4 +151,24 @@ Dry Run:
 [17,18,5,4,6,1]
 k=0 K=1 to length
 
+*/
+
+/*
+Solution passes test Cases:
+class Solution {
+    public int[] replaceElements(int[] arr) {
+        int[] out = new int[arr.length];
+        int max=out[arr.length-1]=-1,k=arr.length-2;
+        for(int i=arr.length-1; i>=0; i--) {
+            if(arr[i]>max) {
+                max = arr[i];
+            }
+            if(k>=0) {
+                out[k] = max;
+                k--;
+            }
+        }
+        return out;
+    }
+}
 */
