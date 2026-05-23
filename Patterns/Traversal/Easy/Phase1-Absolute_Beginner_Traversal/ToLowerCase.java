@@ -70,5 +70,5 @@ H = 72
 h = 104
 So computers were designed so that:
 adding 32 converts uppercase → lowercase
-subtracting 32 converts lowercase → u
+subtracting 32 converts lowercase → uppercase
 */
