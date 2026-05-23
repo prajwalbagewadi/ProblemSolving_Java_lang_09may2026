@@ -96,6 +96,7 @@ true
 
 === Code Execution Successful ===
 
+to lower case functionality added
 Hello world.
 sb:amanaplanacanalpanama
 rsb:?manaPlanacanalpanamA
