@@ -34,15 +34,28 @@ class Solution {
         StringBuilder rsb = new StringBuilder();
         char[] c = s.toCharArray();
         boolean out;
+        int n = c.length-1;
         String specialChars = " !@#$%^&*()-_=+[]{};:'\",.<>/?\\|`~";
-        int j=0;
-        for(int i=c.length-1; i>=0; i--) {
-            if(specialChars.indexOf(c[i])==-1 && specialChars.indexOf(c[j])==-1) { 
+        int j=n;
+        for(int i=0; i<n+1; i++) {
+            if(specialChars.indexOf(c[i])==-1) { 
                 //if char found positive index is returned else return -1.
-                rsb.append(c[i]);
-                sb.append(c[j]);
+                if(c[i]>='A' & c[i]<='Z') {
+                    sb.append((char)(c[i]+32)); //convert to lowercase.
+                } 
+                else {
+                    sb.append(c[i]);   
+                }
             }
-            j++;
+            if(specialChars.indexOf(c[j])==-1) {
+                if(c[i]>='A' & c[i]<='Z') {
+                    rsb.append((char)(c[j]+32)); //convert to lowercase.
+                } 
+                else {
+                    rsb.append(c[j]);   
+                }
+            }
+            j--;
         }
         System.out.println("sb:"+sb.toString());
         System.out.println("rsb:"+rsb.toString());
@@ -60,8 +73,8 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Hello world.");
         Solution s = new Solution();
-        //String in = "A man, a plan, a canal: Panama";
-        String in = "lol";
+        String in = "A man, a plan, a canal: Panama";
+        //String in = "lol";
         System.out.println(s.isPalindrome(in));
     }
 }
@@ -80,6 +93,13 @@ Hello world.
 sb:lol
 rsb:lol
 true
+
+=== Code Execution Successful ===
+
+Hello world.
+sb:amanaplanacanalpanama
+rsb:?manaPlanacanalpanamA
+false
 
 === Code Execution Successful ===
 */
