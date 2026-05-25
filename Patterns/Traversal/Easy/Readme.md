@@ -292,7 +292,7 @@ Very important for interviews.
 ## Problems
 
 18. [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/description/)
-19. Transpose Matrix
+19. [Transpose Matrix](https://leetcode.com/problems/transpose-matrix/description/)
 20. Flipping an Image
 21. Count Negative Numbers in a Sorted Matrix
 
