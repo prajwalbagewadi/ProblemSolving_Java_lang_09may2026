@@ -25,9 +25,13 @@ Follow up: Could you find an O(n + m) solution?
 
 class Solution {
     public int countNegatives(int[][] grid) {
-        int c=0,count=0;
+        int count=0;
         for(int r=0; r<grid.length; r++) {
-            for(int c=0; c<grid.length; c++) 
+            for(int c=0; c<grid.length; c++) {
+                if(grid[r][c]<0) {
+                    count++;
+                }
+            }
         }
         return count;
     }
@@ -45,3 +49,17 @@ class Main {
         System.out.println(s.countNegatives(grid));                
     }
 }
+
+/*
+Time Complexity:
+Nested loop -> count and build result.
+O(n*m).
+*/
+
+/* 
+Output:
+hello world.
+8
+
+=== Code Execution Successful ===
+*/
