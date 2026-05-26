@@ -31,12 +31,38 @@ n == image[i].length
 images[i][j] is either 0 or 1.
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2d array int[][] image.
+3. Create 2d array int[][] fip of size int[][] flip = new int[ image.length][image[0].length]. 
+4. For int r to r<image.length (increament r++).
+5. For int c=image[0].length-1 to c>=0 (decrement c--).
+6. Check if image[r][c] == 0.
+7. Set flip[r][(image.length-1)-c]=1.
+8. Else Set flip[r][(image.length-1)-c]=0.
+9. Return flip.
+10. Stop.
+*/
+
 class Solution {
     public int[][] flipAndInvertImage(int[][] image) {
         int[][] flip = new int[image.length][image[0].length];
-        
+        for(int r=0; r<image.length; r++) {
+            for(int c=image[0].length-1; c>=0; c--) { 
+                //System.out.println("c"+c);
+                if(image[r][c]==0) {
+                    flip[r][(image.length-1)-c]=1;
+                }
+                else {
+                    flip[r][(image.length-1)-c]=0;
+                }
+            }
+        }
+        return flip;
     }
 }
+
 
 class Main {
     public static void main(String[] args) {
@@ -53,7 +79,34 @@ class Main {
 }
 
 /*
-Notes: [1,0,0],[0,1,0],[1,1,1]
+Time Complexity:
+nested loop -> build result.
+O(n×n) -> O(square(n))
+*/
+
+/*
+Output:
+hello world.
+c2
+c1
+c0
+c2
+c1
+c0
+c2
+c1
+c0
+ 1 0 0
+ 0 1 0
+ 1 1 1
+
+=== Code Execution Successful ===
+*/
+
+
+/*
+Notes: 
+[1,1,0],[1,0,1],[0,0,0] -> [1,0,0],[0,1,0],[1,1,1]
 110     100
 101  -> 010
 000     111
