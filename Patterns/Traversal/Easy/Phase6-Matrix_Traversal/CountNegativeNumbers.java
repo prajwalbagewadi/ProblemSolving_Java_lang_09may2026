@@ -23,11 +23,23 @@ n == grid[i].length
 Follow up: Could you find an O(n + m) solution?
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2d array int[][] grid.
+3. Create a new var of type int count and set it to count=0.
+4. For int r=0 to r<grid.length (increament r++)
+5. For int c=0 to c<grid[r].length (increament c++)
+6. Check if grid[r][c]<0.
+7. Increament count++.
+8. Return count.
+*/
+
 class Solution {
     public int countNegatives(int[][] grid) {
         int count=0;
         for(int r=0; r<grid.length; r++) {
-            for(int c=0; c<grid.length; c++) {
+            for(int c=0; c<grid[r].length; c++) {
                 if(grid[r][c]<0) {
                     count++;
                 }
