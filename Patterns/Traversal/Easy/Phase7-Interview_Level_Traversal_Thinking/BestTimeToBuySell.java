@@ -26,30 +26,53 @@ Constraints:
 
 class Solution {
     public int maxProfit(int[] prices) {
-        int buy=0;
-        int profit=0;
-        for(int sell=1; sell<prices.length; sell++) {
-            if(prices[sell]-prices[buy]>profit) {
-                profit=prices[sell]-prices[buy];
+        int b=0;
+        int p=0;
+        for(int s=1; s<prices.length; s++) {
+            if(prices[s]-prices[b]<0 || prices[s]<prices[b]) {
+                b++;
             }
-            if(profit<0) {
-                buy++;
+            else {
+                if(prices[s]-prices[b]>p) {
+                    p = prices[s]-prices[b];
+                }
             }
         }
-        return profit;
+        return p;
     }
 }
 
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
-        int[] stock = {7,1,5,3,6,4};
+        //int[] stock = {7,1,5,3,6,4};
+        int[] stock = {2,1,2,1,0,1,2};
         Solution s = new Solution();
         System.out.println(s.maxProfit(stock));
     }
     
 }
 
+
+/*
+Test case failed:
+[2,1,2,1,0,1,2]
+Expected
+2
+*/
+
+/*
+Output:
+Start small. Ship something.
+5
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+1
+
+=== Code Execution Successful ===
+*/
 
 
 /*
