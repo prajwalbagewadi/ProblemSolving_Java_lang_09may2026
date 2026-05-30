@@ -25,18 +25,31 @@ Constraints:
 0 <= prices[i] <= 104
 */
 
+/*
+Steps:
+1. Start.
+2. Take input array int[] prices.
+3. Create a new int buy and set it to buy = prices[0].
+4. Create a new int p(profit) and set it to p = 0.
+5. For int s(sell)=1 to s<prices.length (increament s++).
+6. Check if prices[s]<buy.
+7. Set buy = prices[s].
+8. Check if prices[s]-buy > p.
+9. Set p = prices[s]-buy.
+10. Return p.
+11. Stop.
+*/
+
 class Solution {
     public int maxProfit(int[] prices) {
-        int b=0;
-        int p=0;
+        int buy = prices[0];
+        int p = 0;
         for(int s=1; s<prices.length; s++) {
-            if(prices[s]-prices[b]<0 || prices[s]<prices[b]) {
-                b++;
+            if(prices[s]<buy) {
+                buy = prices[s];
             }
-            else {
-                if(prices[s]-prices[b]>p) {
-                    p = prices[s]-prices[b];
-                }
+            if(prices[s]-buy>p) {
+                p = prices[s]-buy;
             }
         }
         return p;
@@ -54,12 +67,25 @@ class Main {
     
 }
 
+/*
+Time Complexity:
+loop 1 -> check if current<buy and current>profit return profit
+O(n)
+*/
+
 
 /*
 Test case failed:
 [2,1,2,1,0,1,2]
 Expected
 2
+
+Output:
+Start small. Ship something.
+2
+
+=== Code Execution Successful ===
+=== Testcase passed ===
 */
 
 /*

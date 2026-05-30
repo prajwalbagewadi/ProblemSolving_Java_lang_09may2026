@@ -315,7 +315,7 @@ Very important for interviews.
 
 ## Problems
 
-22. Best Time to Buy and Sell Stock
+22. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 
 ## You Learn
 
