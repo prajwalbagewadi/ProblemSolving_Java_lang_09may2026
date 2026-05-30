@@ -29,19 +29,19 @@ class Main {
 -------------------------
 index    | row   | col
 -------------------------
-index:0  | row=0 | col=0
+index:0  | row=0 | col=0 p
 index:1  | row=0 | col=1
 index:2  | row=0 | col=2
-index:3  | row=0 | col=3
+index:3  | row=0 | col=3 s
 --------------------------
 index:4  | row=1 | col=0
-index:5  | row=1 | col=1
-index:6  | row=1 | col=2
+index:5  | row=1 | col=1 p
+index:6  | row=1 | col=2 s
 index:7  | row=1 | col=3
 --------------------------
 index:8  | row=2 | col=0
-index:9  | row=2 | col=1
-index:10 | row=2 | col=2
+index:9  | row=2 | col=1 s
+index:10 | row=2 | col=2 p
 index:11 | row=2 | col=3
 */
 
