@@ -35,10 +35,25 @@ n == accounts[i].length
 1 <= accounts[i][j] <= 100
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2D array int[][] accounts.
+3. Create new variables of type int max=0, sum=0 and c=accounts[0].length.
+4. For int i=0 to i<accounts.length*c (increament i++).
+5. Set sum += accounts[i/c][i%c].
+6. Check if sum > max.
+7. Set max = sum.
+8. Check if ((i+1)%c==0).
+9. Set sum = 0.
+10. Return max.
+11. Stop. 
+*/
+
 class Solution {
     public int maximumWealth(int[][] accounts) {
         int max=0,sum=0,c=accounts[0].length;
-        for(int i=0; i<accounts.length*accounts[0].length; i++) {
+        for(int i=0; i<accounts.length*c; i++) {
             sum+=accounts[i/c][i%c];
             System.out.println("sum="+sum);
             if(sum>max) {
@@ -46,7 +61,7 @@ class Solution {
                 System.out.println("max="+max);
             }
             //interval reset
-            if((i+1)%accounts[0].length==0) {
+            if((i+1)%c==0) {
                 sum=0;
             }
         }

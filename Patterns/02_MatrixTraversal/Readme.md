@@ -107,7 +107,7 @@ These problems help build row-column thinking, nested loops, diagonal traversal,
 ## Problems
 
 1. [Matrix Diagonal Sum](https://leetcode.com/problems/matrix-diagonal-sum/description/) (Easy)
-2. Richest Customer Wealth (Easy)
+2. [Richest Customer Wealth](https://leetcode.com/problems/richest-customer-wealth/description/) (Easy)
 3. Transpose Matrix (Easy)
 4. Flipping an Image (Easy)
 
