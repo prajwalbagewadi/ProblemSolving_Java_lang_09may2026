@@ -37,12 +37,65 @@ n == accounts[i].length
 
 class Solution {
     public int maximumWealth(int[][] accounts) {
-        
+        int max=0,sum=0,c=accounts[0].length;
+        for(int i=0; i<accounts.length*accounts[0].length; i++) {
+            sum+=accounts[i/c][i%c];
+            System.out.println("sum="+sum);
+            if(sum>max) {
+                max=sum;
+                System.out.println("max="+max);
+            }
+            //interval reset
+            if((i+1)%accounts[0].length==0) {
+                sum=0;
+            }
+        }
+        return max;
     }
 }
 
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        //int[][] w = {{1,2,3},{3,2,1}};
+        int[][] w = {{1,5},{7,3},{3,5}};
+        Solution s = new Solution();
+        System.out.println(s.maximumWealth(w));
     }
 }
+
+/*
+Notes:
+As we Flattened a 2D array.
+We need a interval to reset sum at end of each account(Row.length).
+
+Reset (Interval):
+- Sum should reset at (End of each Row).
+Formula:
+if((i + 1) % matrix[0].length == 0) {
+//reset procedure.
+}
+*/
+
+/*
+Output:
+Start small. Ship something.
+10
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+sum=1
+max=1
+sum=6
+max=6
+sum=7
+max=7
+sum=10
+max=10
+sum=3
+sum=8
+10
+
+=== Code Execution Successful ===
+*/
