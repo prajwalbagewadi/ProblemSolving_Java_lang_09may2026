@@ -23,6 +23,23 @@ n == matrix[i].length
 -109 <= matrix[i][j] <= 109
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2D array int[][] matrix.
+3. Create new 2D array int[][] mat.
+4. Create new var of type int c.
+5. Check if matrix.length != matrix[0].length.
+6. Set mat = new int[matrix[0].length][matrix.length].
+7. Set c = matrix[0].length.
+8. For int i=0 to i<c*matrix.length (increament i++).
+9. Set mat[i%c][i/c] = matrix[i/c][i%c].
+10. Else For int i=0 to i<matrix.length*c (increament i++).
+11. Set mat[i/c][i%c] = matrix[i%c][i/c].
+12. Return mat.
+13. Stop.
+*/
+
 class Solution {
     public int[][] transpose(int[][] matrix) {
         int[][] mat;
@@ -31,8 +48,8 @@ class Solution {
              mat = new int[matrix[0].length][matrix.length];
              c = matrix[0].length;
              for(int i=0; i<c*matrix.length; i++) {
-                 System.out.println("r="+i/c+" c="+i%c);
-                 mat[i/c][i%c] = matrix[i/c][i%c];
+                 //System.out.println("r="+i/c+" c="+i%c);
+                 mat[i%c][i/c] = matrix[i/c][i%c];
              }
         }
         else {
@@ -49,8 +66,8 @@ class Solution {
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
-        int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
-        //int[][] mat = {{1,2,3},{4,5,6}};
+        //int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] mat = {{1,2,3},{4,5,6}};
         Solution s = new Solution();
         for(int[] i : s.transpose(mat)) {
             for(int j : i) {
@@ -62,9 +79,41 @@ class Main {
     }
 }
 
+/*
+Time Complexity:
+row*col.
+O(n*m).
+*/
+
+/*
+Notes:
+i / c → row
+i % c → column
+
+For Non Square Matrix:
+Row!=Col
+out[Col][Row] = in[Row][Col] 
+
+For Square Matrix:
+Row==Col
+out[Row][Col] = in[Col][Row]
+*/
 
 /*
 Output:
+
+Start small. Ship something.
+r=0 c=0
+r=0 c=1
+r=0 c=2
+r=1 c=0
+r=1 c=1
+r=1 c=2
+14
+25
+36
+
+=== Code Execution Successful ===
 
 can't handle edge case 3*2 matrix
 Start small. Ship something.
