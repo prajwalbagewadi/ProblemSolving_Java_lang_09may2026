@@ -31,19 +31,36 @@ n == image[i].length
 images[i][j] is either 0 or 1.
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2D array int[][] image.
+3. Create a new array of type int[][] out = new int[image.length][image.length].
+4. Create new var of type int c = 0.
+5. For int i=0 to i<image.length (increament i++).
+6. Set c=0.
+7. For int j=image.length-1 to j>=0 (decreament j--).
+8. Check if image[i][j] == 0.
+9. Set out[i][c]=1.
+10. Else set out[i][c]=0.
+11. Increament c++.
+12. Return out.
+*/
+
 class Solution {
     public int[][] flipAndInvertImage(int[][] image) {
         int[][] out = new int[image.length][image.length];
-        int r=0;
+        int c;
         for(int i=0; i<image.length; i++) {
+            c=0;
             for(int j=image.length-1; j>=0; j--) {
                 if(image[i][j]==0) {
-                    out[i][r] = 1;
+                    out[i][c]=1;
                 }
                 else {
-                    out[i][r] = 0;
-                }     
-                r++;
+                    out[i][c]=0;
+                }
+                c++;
             }
         }
         return out;
@@ -65,7 +82,20 @@ class Main {
 }
 
 /*
+Time complexity:
+2 loops of size n.
+O(square(n)).
+*/
+
+/*
 Output:
+
+Start small. Ship something.
+100
+010
+111
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 ERROR!
