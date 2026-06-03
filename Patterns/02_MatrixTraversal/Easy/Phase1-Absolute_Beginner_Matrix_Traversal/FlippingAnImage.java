@@ -33,7 +33,20 @@ images[i][j] is either 0 or 1.
 
 class Solution {
     public int[][] flipAndInvertImage(int[][] image) {
-        
+        int[][] out = new int[image.length][image.length];
+        int r=0;
+        for(int i=0; i<image.length; i++) {
+            for(int j=image.length-1; j>=0; j--) {
+                if(image[i][j]==0) {
+                    out[i][r] = 1;
+                }
+                else {
+                    out[i][r] = 0;
+                }     
+                r++;
+            }
+        }
+        return out;
     }
 }
 
@@ -50,3 +63,23 @@ class Main {
         }
     }
 }
+
+/*
+Output:
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at Solution.flipAndInvertImage(Main.java:44)
+	at Main.main(Main.java:58)
+
+=== Code Exited With Errors ===
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 3
+	at Solution.flipAndInvertImage(Main.java:40)
+	at Main.main(Main.java:53)
+
+=== Code Exited With Errors ===
+*/
