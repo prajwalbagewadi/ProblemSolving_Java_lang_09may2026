@@ -33,44 +33,53 @@ import java.util.List;
 import java.util.ArrayList;
 
 class Solution {
-    public List<Integer> luckyNumbers(int[][] matrix) {
-        List<Integer> out = new ArrayList<Integer>();
-        int min=0,max=0,c=matrix[0].length;
-        for(int r=0; r<matrix.length;
-        r++) {
-          if(matrix[r%c][r]>max) {
-            System.out.println("min");
-            System.out.println("r="+r);
-            System.out.println("c="+r%c);
-            max = matrix[r][r%c];
-          }
-          if(matrix[r][r%c]<min) {
-            System.out.println("max");
-            System.out.println("r="+r%c);
-            System.out.println("c="+r);
-            min = matrix[r][r%c];
-          }
-          if(min==max) {
-            out.add(min);
-          }
+  public List<Integer> luckyNumbers(int[][] matrix) {
+    List<Integer> out = new ArrayList<Integer>();
+    int max=0;
+    int statrow=0;
+    int statcol=0;
+    int min;
+    int n=matrix.length;
+    int m=matrix[0].length;
+    for(int c=0; c<m; c++) {
+      for(int r=0; r<n; r++){
+        if(matrix[r][c]>=max) {
+          statrow=r;
+          max=matrix[r][c];
+        } 
+      }
+      min=max;
+      for(int col=0; col<m; col++) {
+        if(matrix[statrow][col]<=min) {
+          min=matrix[statrow][col];
         }
-        return out;
-    }
+      }
+      if(min==max) {
+        out.add(min);
+      }
+    }  
+    return out;
+  }
 }
 
 class Main {
-    public static void main(String[] args) {
-        System.out.println("Start small. Ship something.");
-        Solution s = new Solution();
-        int[][] in = {{3,7,8},{9,11,13},{15,16,17}};
-        for(int i : s.luckyNumbers(in)) {
-            System.out.println(i);
-        }
+  public static void main(String[] args) {
+  System.out.println("Start small. Ship something.");
+  Solution s = new Solution();
+  //int[][] in = {{3,7,8},{9,11,13},{15,16,17}};
+  //int[][] in = {{7,8},{1,2}};  
+  //int[][] in = {{5, 1},{5, 1}}; invalid case.
+  int[][] in = {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
+    for(int i : s.luckyNumbers(in)) {
+      System.out.println(i);
     }
+  }
 }
 
 /*
 Output:
+
+Start small. Ship something.
 
 Start small. Ship something.
 min
