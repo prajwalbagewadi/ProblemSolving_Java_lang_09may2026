@@ -35,29 +35,32 @@ import java.util.ArrayList;
 class Solution {
   public List<Integer> luckyNumbers(int[][] matrix) {
     List<Integer> out = new ArrayList<Integer>();
-    int max=0;
-    int statrow=0;
-    int statcol=0;
-    int min;
-    int n=matrix.length;
-    int m=matrix[0].length;
-    for(int c=0; c<m; c++) {
-      for(int r=0; r<n; r++){
-        if(matrix[r][c]>=max) {
-          statrow=r;
-          max=matrix[r][c];
-        } 
-      }
-      min=max;
-      for(int col=0; col<m; col++) {
-        if(matrix[statrow][col]<=min) {
-          min=matrix[statrow][col];
+    int n = matrix.length;
+    int m = matrix[0].length;
+    int min = 0;
+    int max = 0;
+    int col = 0;
+    for(int i=0; i<n; i++) {
+        min=matrix[i][i];
+        if(i<m) {
+            col=i;
         }
-      }
-      if(min==max) {
-        out.add(min);
-      }
-    }  
+        for(int j=0; j<m; j++) {
+            if(matrix[i][j]<min) {
+                col=j;
+                min=matrix[i][j];
+            }
+        }
+        max=min;
+        for(int k=0; k<n; k++) {
+            if(matrix[k][col]>max) {
+                max=matrix[k][col];
+            }
+        }
+        if(max==min) {
+            out.add(max);
+        }
+    }
     return out;
   }
 }
@@ -86,6 +89,23 @@ Expected:
 
 /*
 Output:
+
+Start small. Ship something.
+12
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 3 out of bounds for length 3
+	at Solution.luckyNumbers(Main.java:44)
+	at Main.main(Main.java:70)
+
+=== Code Exited With Errors ===
 
 Start small. Ship something.
 
