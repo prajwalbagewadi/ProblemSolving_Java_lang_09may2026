@@ -35,14 +35,24 @@ import java.util.ArrayList;
 class Solution {
     public List<Integer> luckyNumbers(int[][] matrix) {
         List<Integer> out = new ArrayList<Integer>();
-        int min = matrix[0][0];
-        int max = min,col=matrix[0].length;
-        for(int r=1; r<matrix.length; r++) {
-            if(matrix[r][r%c]<min) {
-                if(matrix[r%c][r]>max) {
-                    out.add(matrix[r][r%c]);
-                }
-            }
+        int min=0,max=0,c=matrix[0].length;
+        for(int r=0; r<matrix.length;
+        r++) {
+          if(matrix[r%c][r]>max) {
+            System.out.println("min");
+            System.out.println("r="+r);
+            System.out.println("c="+r%c);
+            max = matrix[r][r%c];
+          }
+          if(matrix[r][r%c]<min) {
+            System.out.println("max");
+            System.out.println("r="+r%c);
+            System.out.println("c="+r);
+            min = matrix[r][r%c];
+          }
+          if(min==max) {
+            out.add(min);
+          }
         }
         return out;
     }
@@ -61,6 +71,40 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+min
+r=0
+c=0
+min
+r=1
+c=1
+min
+r=2
+c=2
+
+Start small. Ship something.
+min
+r=0
+c=0
+max
+r=0
+c=0
+min
+r=1
+c=1
+max
+r=1
+c=1
+min
+r=2
+c=2
+max
+r=2
+c=2
+3
+11
+17
 
 ERROR!
 Main.java:41: error: cannot find symbol
