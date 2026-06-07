@@ -77,6 +77,14 @@ class Main {
 }
 
 /*
+Testcase failed:
+int[][] in = {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
+Expected:
+12
+*/
+
+
+/*
 Output:
 
 Start small. Ship something.
