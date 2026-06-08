@@ -29,6 +29,13 @@ n == mat[i].length
 All elements in the matrix are distinct.
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2D array int[][] matrix.
+ 
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -37,29 +44,28 @@ class Solution {
     List<Integer> out = new ArrayList<Integer>();
     int n = matrix.length;
     int m = matrix[0].length;
-    int min = 0;
+    int min = matrix[0][0];
     int max = 0;
     int col = 0;
     for(int i=0; i<n; i++) {
-        min=matrix[i][i];
-        if(i<m) {
-            col=i;
+      if(i<m) {
+        col=i;
+      }
+      for(int j=0; j<m; j++) {
+        if(matrix[i][j]<min) {
+          col=j;
+          min=matrix[i][j];
         }
-        for(int j=0; j<m; j++) {
-            if(matrix[i][j]<min) {
-                col=j;
-                min=matrix[i][j];
-            }
+      }
+      max=min;
+      for(int k=0; k<n; k++) {
+        if(matrix[k][col]>max) {
+          max=matrix[k][col];
         }
-        max=min;
-        for(int k=0; k<n; k++) {
-            if(matrix[k][col]>max) {
-                max=matrix[k][col];
-            }
-        }
-        if(max==min) {
-            out.add(max);
-        }
+      }
+      if(max==min) {
+        out.add(max);
+      }
     }
     return out;
   }
@@ -67,12 +73,14 @@ class Solution {
 
 class Main {
   public static void main(String[] args) {
-  System.out.println("Start small. Ship something.");
-  Solution s = new Solution();
-  //int[][] in = {{3,7,8},{9,11,13},{15,16,17}};
-  //int[][] in = {{7,8},{1,2}};  
-  //int[][] in = {{5, 1},{5, 1}}; invalid case.
-  int[][] in = {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
+    System.out.println("Start small. Ship something.");
+    Solution s = new Solution();
+    //int[][] in = {{3,7,8},{9,11,13},{15,16,17}};
+    //int[][] in = {{7,8},{1,2}};  
+    //int[][] in = {{5, 1},{5, 1}}; invalid case.
+    //int[][] in = {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
+    //int[][] in = {{3,6},{7,1},{5,2},{4,8}};
+    int[][] in = {{56216},{63251},{75772},{1945},{27014}};
     for(int i : s.luckyNumbers(in)) {
       System.out.println(i);
     }
@@ -81,6 +89,11 @@ class Main {
 
 /*
 Testcase failed:
+
+int[][] in = {{56216},{63251},{75772},{1945},{27014}};
+Expected:
+[75772]
+
 int[][] in = {{1,10,4,2},{9,3,8,7},{15,16,17,12}};
 Expected:
 12
