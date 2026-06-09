@@ -26,12 +26,66 @@ mat[i][j] is either 0 or 1.
 
 class Solution {
     public int numSpecial(int[][] mat) {
-        
+        int result = 0;
+        int cnt;
+        int n = mat.length;
+        int m = mat[0].length;
+        for(int c=0; c<m; c++) {
+            cnt=0;
+            for(int r=0; r<n; r++) {
+                System.out.println(" "+r+c);
+                if(mat[r][c]==1) {
+                    cnt++;
+                }
+            }
+            if(cnt==1) {
+                result++;
+            }
+        }
+        return result;
     }
 }
 
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        //int[][] in = {{1,0,0},{0,0,1},{1,0,0}};
+        int[][] in = {{1,0,0},{0,1,0},{0,0,1}};
+        Solution s = new Solution();
+        System.out.println(s.numSpecial(in));
     }
 }
+
+/*
+Output:
+
+Start small. Ship something.
+ 00
+ 10
+ 20
+ 01
+ 11
+ 21
+ 02
+ 12
+ 22
+3
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+ 00
+ 10
+ 20
+ 01
+ 11
+ 21
+ 02
+ 12
+ 22
+1
+
+=== Code Execution Successful ===
+*/
+
+
