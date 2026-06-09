@@ -33,7 +33,26 @@ All elements in the matrix are distinct.
 Steps:
 1. Start.
 2. Take input 2D array int[][] matrix.
- 
+3. Create new List<Integer> out = new ArrayList<>();
+4. Create new int n = matrix.length;
+5. Create new int m = matrix[0].length.
+6. Create new int min.
+7. Create new int col = 0.
+8. Create new int max.
+9. For int i=0 to i<n (increament i++)
+10. Set min = matrix[i][i%m].
+11. For int j=0; to j<m (increament j++)
+12. Check if matrix[i][j] < min.
+13. Set col = j.
+14. Set min = matrix[i][j].
+15. Set max = min.
+16. For int k=0; to k<n (increament k++)
+17. Check if matrix[k][col] > max.
+18. Set max = matrix[k][col].
+19. Check if min == max.
+20. Add out.add(max).
+21. Return out.
+22. Stop.
 */
 
 import java.util.List;
@@ -44,28 +63,26 @@ class Solution {
     List<Integer> out = new ArrayList<Integer>();
     int n = matrix.length;
     int m = matrix[0].length;
-    int min = matrix[0][0];
-    int max = 0;
-    int col = 0;
+    int min;
+    int col=0;
+    int max;
     for(int i=0; i<n; i++) {
-      if(i<m) {
-        col=i;
-      }
-      for(int j=0; j<m; j++) {
-        if(matrix[i][j]<min) {
-          col=j;
-          min=matrix[i][j];
+        min=matrix[i][i%m];
+        for(int j=0; j<m; j++) {
+            if(matrix[i][j]<min) {
+                col=j;
+                min=matrix[i][j];
+            }
         }
-      }
-      max=min;
-      for(int k=0; k<n; k++) {
-        if(matrix[k][col]>max) {
-          max=matrix[k][col];
+        max=min;
+        for(int k=0; k<n; k++) {
+            if(matrix[k][col]>max) {
+                max=matrix[k][col];
+            }
         }
-      }
-      if(max==min) {
-        out.add(max);
-      }
+        if(min==max) {
+            out.add(max);
+        }
     }
     return out;
   }
@@ -88,6 +105,17 @@ class Main {
 }
 
 /*
+Time complexity:
+loop 1 -> runs rows.
+loop 2 -> find min in each row.
+loop 3 -> find max in col.
+O(n*m+n*n)
+O(n*(m+n))
+O(nm+square(n))
+O(square(n))
+*/
+
+/*
 Testcase failed:
 
 int[][] in = {{56216},{63251},{75772},{1945},{27014}};
@@ -102,6 +130,11 @@ Expected:
 
 /*
 Output:
+
+Start small. Ship something.
+75772
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 12
