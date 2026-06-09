@@ -57,6 +57,13 @@ class Main {
 }
 
 /*
+Testcase failed:
+[[0,0,0,1],[1,0,0,0],[0,1,1,0],[0,0,0,0]]
+expected:
+2
+*/
+
+/*
 Output:
 
 Start small. Ship something.
