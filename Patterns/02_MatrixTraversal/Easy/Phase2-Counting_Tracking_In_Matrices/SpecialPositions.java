@@ -26,22 +26,28 @@ mat[i][j] is either 0 or 1.
 
 class Solution {
     public int numSpecial(int[][] mat) {
+        int n=mat.length;
+        int m=mat[0].length;
         int result = 0;
-        int cnt;
-        int n = mat.length;
-        int m = mat[0].length;
-        for(int c=0; c<m; c++) {
-            cnt=0;
-            for(int r=0; r<n; r++) {
-                System.out.println(" "+r+c);
-                if(mat[r][c]==1) {
-                    cnt++;
+        int rcnt,ccnt;
+        for(int i=0; i<n; i++) { //row
+            rcnt=0;
+            ccnt=0;
+            for(int j=0; j<m; j++) {
+                if(mat[i][j]==1) {
+                    rcnt++;
                 }
             }
-            if(cnt==1) {
+            for(int k=0; k<n; k++) {
+                if(mat[k][i]==1) {
+                    ccnt++;
+                }
+            }
+            if(rcnt==1 && ccnt==1) {
                 result++;
             }
         }
+        
         return result;
     }
 }
@@ -50,7 +56,8 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
         //int[][] in = {{1,0,0},{0,0,1},{1,0,0}};
-        int[][] in = {{1,0,0},{0,1,0},{0,0,1}};
+        //int[][] in = {{1,0,0},{0,1,0},{0,0,1}};
+        int[][] in = {{0,0,0,1},{1,0,0,0},{0,1,1,0},{0,0,0,0}};
         Solution s = new Solution();
         System.out.println(s.numSpecial(in));
     }
@@ -61,10 +68,40 @@ Testcase failed:
 [[0,0,0,1],[1,0,0,0],[0,1,1,0],[0,0,0,0]]
 expected:
 2
+
+[[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,1,0,0]]
+expected:
+2
 */
 
 /*
 Output:
+
+Start small. Ship something.
+2
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+ 00
+ 10
+ 20
+ 30
+ 01
+ 11
+ 21
+ 31
+ 02
+ 12
+ 22
+ 32
+ 03
+ 13
+ 23
+ 33
+0
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
  00
@@ -94,5 +131,3 @@ Start small. Ship something.
 
 === Code Execution Successful ===
 */
-
-
