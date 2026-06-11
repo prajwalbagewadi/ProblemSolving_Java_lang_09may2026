@@ -29,25 +29,30 @@ class Solution {
         int n=mat.length;
         int m=mat[0].length;
         int result = 0;
-        int rcnt,ccnt;
-        for(int i=0; i<n; i++) { //row
-            rcnt=0;
-            ccnt=0;
+        int col = 0;
+        int rowcnt,colcnt;
+        for(int i=0; i<n; i++) {
+            rowcnt=0;
+            colcnt=0;
             for(int j=0; j<m; j++) {
+                System.out.println("r="+i+" c="+j);
                 if(mat[i][j]==1) {
-                    rcnt++;
+                    System.out.println("mat[i][j]="+mat[i][j]);
+                    col=j;
+                    rowcnt++;
                 }
             }
-            for(int k=0; k<n; k++) {
-                if(mat[k][i]==1) {
-                    ccnt++;
+            for(int j=0; j<m; j++) {
+                System.out.println("r="+j+" c="+i);
+                if(mat[j][col]==1) {
+                    System.out.println("mat[j][i]="+mat[j][i]);
+                    colcnt++;
                 }
             }
-            if(rcnt==1 && ccnt==1) {
+            if(rowcnt==1 && colcnt==1) {
                 result++;
             }
         }
-        
         return result;
     }
 }
@@ -57,7 +62,12 @@ class Main {
         System.out.println("Start small. Ship something.");
         //int[][] in = {{1,0,0},{0,0,1},{1,0,0}};
         //int[][] in = {{1,0,0},{0,1,0},{0,0,1}};
-        int[][] in = {{0,0,0,1},{1,0,0,0},{0,1,1,0},{0,0,0,0}};
+        //int[][] in = {{0,0,0,1},{1,0,0,0},{0,1,1,0},{0,0,0,0}};
+        int[][] in = {{0,0,1,0},
+                      {0,0,0,0},
+                      {0,0,0,0},
+                      {0,1,0,0}};
+        int[][] in = {{0,0},{0,0},{1,0}};
         Solution s = new Solution();
         System.out.println(s.numSpecial(in));
     }
@@ -72,6 +82,10 @@ expected:
 [[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,1,0,0]]
 expected:
 2
+
+[[0,0],[0,0],[1,0]]
+expected:
+1
 */
 
 /*
