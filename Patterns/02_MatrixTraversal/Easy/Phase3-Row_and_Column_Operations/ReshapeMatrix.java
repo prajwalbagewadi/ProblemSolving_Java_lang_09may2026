@@ -29,7 +29,15 @@ n == mat[i].length
 
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
-        
+        int[][] out;
+        int n = mat.length;
+        int m = mat[0].length;
+        if(r*c==n*m) {
+            out = new int[r][c];
+            for(int i=0; i<n; i++) {
+                for(int j=0)
+            }
+        }
     }
 }
 
