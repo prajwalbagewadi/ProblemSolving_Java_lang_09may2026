@@ -24,6 +24,31 @@ n == mat[i].length
 mat[i][j] is either 0 or 1.
 */
 
+/*
+Steps
+1. start.
+2. Take input 2D array int[][]mat.
+3. Create new var int n=mat.length.
+4. Create new var int m=mat[0].length.
+5. Create new var int result=0;
+6. Create new var int col=0.
+7. Create new vars int rowcnt,colcnt.
+8. For int i=0 to i<n(numofrows) (increament i++).
+9. Set rowcnt=0.
+10. Set colcnt=0.
+11. For int j=0 to j<m(numofcols) (increament j++).
+12. Check if mat[i][j]==1.
+13. Set col=j.
+14. Increment rowcnt++.
+15. For int j=0 to j<m(numofrows) (increament j++).
+16. Check if mat[j][col]==1.
+17. Increment colcnt++.
+18. Check if rowcnt==1 && colcnt==1.
+19. Increment result++.
+20. Return result.
+21. Stop.
+*/
+
 class Solution {
     public int numSpecial(int[][] mat) {
         int n=mat.length;
@@ -42,10 +67,10 @@ class Solution {
                     rowcnt++;
                 }
             }
-            for(int j=0; j<m; j++) {
+            for(int j=0; j<n; j++) {
                 System.out.println("r="+j+" c="+i);
                 if(mat[j][col]==1) {
-                    System.out.println("mat[j][i]="+mat[j][i]);
+                    System.out.println("mat[j][i]="+mat[j][col]);
                     colcnt++;
                 }
             }
@@ -63,10 +88,7 @@ class Main {
         //int[][] in = {{1,0,0},{0,0,1},{1,0,0}};
         //int[][] in = {{1,0,0},{0,1,0},{0,0,1}};
         //int[][] in = {{0,0,0,1},{1,0,0,0},{0,1,1,0},{0,0,0,0}};
-        int[][] in = {{0,0,1,0},
-                      {0,0,0,0},
-                      {0,0,0,0},
-                      {0,1,0,0}};
+        //int[][] in = {{0,0,1,0},{0,0,0,0},{0,0,0,0},{0,1,0,0}};
         int[][] in = {{0,0},{0,0},{1,0}};
         Solution s = new Solution();
         System.out.println(s.numSpecial(in));
@@ -90,6 +112,56 @@ expected:
 
 /*
 Output:
+
+Start small. Ship something.
+r=0 c=0
+r=0 c=1
+r=0 c=0
+r=1 c=0
+r=2 c=0
+mat[j][i]=1
+r=1 c=0
+r=1 c=1
+r=0 c=1
+r=1 c=1
+r=2 c=1
+mat[j][i]=1
+r=2 c=0
+mat[i][j]=1
+r=2 c=1
+r=0 c=2
+r=1 c=2
+r=2 c=2
+mat[j][i]=1
+1
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+r=0 c=0
+r=0 c=1
+r=0 c=0
+r=1 c=0
+r=2 c=0
+mat[j][i]=1
+r=1 c=0
+r=1 c=1
+r=0 c=1
+r=1 c=1
+r=2 c=1
+mat[j][i]=0
+r=2 c=0
+mat[i][j]=1
+r=2 c=1
+r=0 c=2
+r=1 c=2
+r=2 c=2
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	at Solution.numSpecial(Main.java:48)
+	at Main.main(Main.java:69)
+
+=== Code Exited With Errors ===*
 
 Start small. Ship something.
 2

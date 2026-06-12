@@ -133,7 +133,7 @@ These problems help build row-column thinking, nested loops, diagonal traversal,
 
 5. [Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/) (Easy)
 6. [Lucky Numbers in a Matrix](https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/) (Easy)
-7. Special Positions in a Binary Matrix (Easy)
+7. [Special Positions in a Binary Matrix](https://leetcode.com/problems/special-positions-in-a-binary-matrix/description/) (Easy)
 
 ## You Learn
 
