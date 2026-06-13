@@ -29,20 +29,96 @@ n == mat[i].length
 
 class Solution {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
-        int[][] out;
+        int[][] out = mat;
         int n = mat.length;
         int m = mat[0].length;
-        if(r*c==n*m) {
+        int temp;
+        if(r*c==mat.length*mat[0].length) {
             out = new int[r][c];
-            for(int i=0; i<n; i++) {
-                for(int j=0)
+            for(int i=0; i<n*m; i++) {
+                temp = mat[i/m][i%m];
+                for(int j=0; j<r*c; j++) {
+                    out[j/c][j%c] = temp;
+                }
             }
         }
+        return out;
     }
 }
 
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        Solution s = new Solution();
+        int[][] in = {{1,2},{3,4}};
+        int r = 1;
+        int c = 4;
+        for(int[] i: s.matrixReshape(in,r,c)) {
+            for(int j: i) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
     }
 }
+
+/*
+Notes:
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println(0/2); //0
+        System.out.println(0%2); //0
+        System.out.println(0/4); //0
+        System.out.println(0%4); //0
+        
+        System.out.println(1/2); //0
+        System.out.println(1%2); //1
+        System.out.println(1/4); //0
+        System.out.println(1%4); //1
+        
+        System.out.println(2/2); //1
+        System.out.println(2%2); //0
+        System.out.println(2/4); //0
+        System.out.println(2%4); //2
+        
+        System.out.println(3/2); //1
+        System.out.println(3%2); //1
+        System.out.println(3/4); //0
+        System.out.println(3%4); //3
+    }
+}
+*/
+
+/*
+Output:
+
+Start small. Ship something.
+4444
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	at Solution.matrixReshape(Main.java:40)
+	at Main.main(Main.java:57)
+
+=== Code Exited With Errors ===
+
+ERROR!
+Start small. Ship something.
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 2 out of bounds for length 2
+	at Solution.matrixReshape(Main.java:37)
+	at Main.main(Main.java:51)
+
+=== Code Exited With Errors ===
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at Solution.matrixReshape(Main.java:37)
+	at Main.main(Main.java:54)
+
+=== Code Exited With Errors ===
+*/
