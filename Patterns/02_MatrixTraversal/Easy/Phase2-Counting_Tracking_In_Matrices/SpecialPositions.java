@@ -96,6 +96,16 @@ class Main {
 }
 
 /*
+Time Complexity:
+first loop costs - m
+second loop costs - n
+O(m+n)
+outer loop costs - n
+O(n*(m+n))
+O(nm+square(n))
+*/
+
+/*
 Testcase failed:
 [[0,0,0,1],[1,0,0,0],[0,1,1,0],[0,0,0,0]]
 expected:
