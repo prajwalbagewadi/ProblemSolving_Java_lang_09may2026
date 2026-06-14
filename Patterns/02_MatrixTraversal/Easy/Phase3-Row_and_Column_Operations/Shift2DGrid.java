@@ -32,9 +32,17 @@ n == grid[i].length
 0 <= k <= 100
 */
 
+import java.util.List;
+import java.util.ArrayList;
+
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
-        
+        int n = grid.length;
+        int m = grid[0].length;
+        List<List<Integer>> out = new ArrayList<List<Integer>>();
+        for(int i=0; i<n*m; i++) {
+            
+        }
     }
 }
 
@@ -43,6 +51,33 @@ class Main {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
         int[][] in = new int{{1,2,3},{4,5,6},{7,8,9}};
-        
+        int k = 9;
     }
 }
+
+/*
+Notes:
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Start small. Ship something.");
+        List<List<String>> out = new ArrayList<List<String>>();
+        List<String> words = Arrays.asList("apple","banana","cherry");
+        out.add(words);
+        System.out.println(out);
+    }
+}
+
+/*
+Output:
+
+Start small. Ship something.
+[[apple, banana, cherry]]
+
+=== Code Execution Successful ===
+
+*/
