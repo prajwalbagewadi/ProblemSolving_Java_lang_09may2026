@@ -37,12 +37,26 @@ import java.util.ArrayList;
 
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
+    //public int[][] shiftGrid(int[][] grid, int k) {
         int n = grid.length;
         int m = grid[0].length;
+        int r = 0;
+        int c = 0;
+        int size = n*m;
         List<List<Integer>> out = new ArrayList<List<Integer>>();
         List<Integer> temp = new ArrayList<Integer>();
-        for(int i=0; i<n*m; i++) {
-            System.out.println(grid[(i+k)/n*m][(i+k)%n*m]);
+        //int[][] out = new int[n][m];
+        int i=0;
+        while(i<size) {
+           r = (i+k)%size;
+           c = (i+k)%size;
+           System.out.println(grid[r/m][c%m]);
+           temp.add(grid[r/m][c%m]);
+           if(i%m==0) {
+               out.add(temp);
+               temp.clear(); //clears temp at every third interval.
+           }
+           i++;
         }
         return out;
     }
@@ -53,15 +67,30 @@ class Main {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
         int[][] in = {{1,2,3},{4,5,6},{7,8,9}};
-        int k = 9;
+        int k = 1;
         System.out.println(s.shiftGrid(in,k));
+        // for(List<Integer> i: s.shiftGrid(in,k)) {
+        //     for(Integer j: i) {
+        //         System.out.print(j);
+        //     }
+        //     System.out.println();
+        // }
     }
 }
 
 /*
 Notes:
 
-Formula: new array index = (i + k) % size
+Formula: 
+- New array index = (i + k) % size
+- New array index = (old index + k).
+- Problem when index reaches at the end. the New index goes to N+1 (8+1=9) 'getting ArrayIndexOutOfBound'.
+- We need circling back to start or Wrapping.(8+1 should go to 0).
+- But After the last box, you come back to the first one.
+- So Whenever you go past N, you just restart from 0.
+- That 'Restart' is what % N does.
+- newIndex = (oldIndex + k) % N.
+- Stop at every third interval (i%3==0)
 
 import java.util.List;
 import java.util.ArrayList;
@@ -81,6 +110,20 @@ class Main {
 Output:
 
 Start small. Ship something.
+2
+3
+4
+5
+6
+7
+8
+9
+1
+[[9, 1], [9, 1], [9, 1]]
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
 [[apple, banana, cherry]]
 
 === Code Execution Successful ===
@@ -88,6 +131,13 @@ Start small. Ship something.
 
 /*
 Output:
+
+Start small. Ship something.
+912
+345
+678
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 ERROR!
