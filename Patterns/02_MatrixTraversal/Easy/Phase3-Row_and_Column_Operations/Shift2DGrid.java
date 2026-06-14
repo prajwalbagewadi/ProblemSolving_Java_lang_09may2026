@@ -40,9 +40,11 @@ class Solution {
         int n = grid.length;
         int m = grid[0].length;
         List<List<Integer>> out = new ArrayList<List<Integer>>();
+        List<Integer> temp = new ArrayList<Integer>();
         for(int i=0; i<n*m; i++) {
-            
+            System.out.println(grid[(i+k)/n*m][(i+k)%n*m]);
         }
+        return out;
     }
 }
 
@@ -50,13 +52,16 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
-        int[][] in = new int{{1,2,3},{4,5,6},{7,8,9}};
+        int[][] in = {{1,2,3},{4,5,6},{7,8,9}};
         int k = 9;
+        System.out.println(s.shiftGrid(in,k));
     }
 }
 
 /*
 Notes:
+
+Formula: new array index = (i + k) % size
 
 import java.util.List;
 import java.util.ArrayList;
@@ -79,5 +84,16 @@ Start small. Ship something.
 [[apple, banana, cherry]]
 
 === Code Execution Successful ===
+*/
 
+/*
+Output:
+
+Start small. Ship something.
+ERROR!
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 9 out of bounds for length 3
+	at Solution.shiftGrid(Main.java:45)
+	at Main.main(Main.java:57)
+
+=== Code Exited With Errors ===
 */
