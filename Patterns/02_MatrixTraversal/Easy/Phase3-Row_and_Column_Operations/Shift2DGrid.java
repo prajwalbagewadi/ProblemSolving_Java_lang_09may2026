@@ -47,18 +47,17 @@ class Solution {
         int size = n*m;
         List<List<Integer>> matrix = new ArrayList<>();
         int i=0;
+        Integer[][] outarr = new Integer[n][m];
         while(i<size) {
-            Integer[] outarr = new Integer[m];
             r = (i+k)%size;
             c = (i+k)%size;
-            
            //System.out.println(grid[r/m][c%m]);
            //outarr[r/m][c%m]=grid[i/m][i%c];
            //matrix.get(r/m).add(c/m,grid[i/m][i%m]);
-           outarr[c%m]=grid[i/m][i%m];
+           outarr[r/m][c%m]=grid[i/m][i%m];
            if(i%m==0) {
                matrix.add(Arrays.asList(outarr));
-               outarr = new Integer[m];
+               //outarr = new Integer[m];
                //out.add(arr);
                //arr.clear(); //clears temp at every third interval.
                 
@@ -115,6 +114,19 @@ class Main {
 
 /*
 Output:
+
+ERROR!
+Main.java:59: error: incompatible types: inference variable T has incompatible bounds
+               matrix.add(Arrays.asList(outarr));
+                     ^
+    equality constraints: Integer
+    lower bounds: Integer[]
+  where T is a type-variable:
+    T extends Object declared in method <T>asList(T...)
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+=== Code Exited With Errors ===
 
 Start small. Ship something.
 [[null, 1, null], [null, 4, null], [null, 7, null]]
