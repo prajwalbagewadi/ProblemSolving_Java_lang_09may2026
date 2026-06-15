@@ -35,7 +35,7 @@ n == grid[i].length
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.lang.Iterable;
 
 class Solution {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
@@ -56,13 +56,20 @@ class Solution {
            //matrix.get(r/m).add(c/m,grid[i/m][i%m]);
            outarr[r/m][c%m]=grid[i/m][i%m];
            if(i%m==0) {
-               matrix.add(Arrays.asList(outarr));
+               //matrix.add(Arrays.asList(outarr));
                //outarr = new Integer[m];
                //out.add(arr);
                //arr.clear(); //clears temp at every third interval.
                 
             }
            i++;
+        }
+        
+        for(Integer[] ik: outarr) {
+            for(Integer l: ik) {
+                System.out.print(l);
+            }
+            System.out.println();
         }
         return matrix;
     }
@@ -114,6 +121,14 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+912
+345
+678
+[]
+
+=== Code Execution Successful ===
 
 ERROR!
 Main.java:59: error: incompatible types: inference variable T has incompatible bounds
