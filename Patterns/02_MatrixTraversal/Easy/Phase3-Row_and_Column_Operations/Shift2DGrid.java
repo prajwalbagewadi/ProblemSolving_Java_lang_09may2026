@@ -36,7 +36,16 @@ n == grid[i].length
 /*
 Steps:
 1. Start.
-2. 
+2. Take input 2d array int[][] grid and int k (toShiftBy).
+3. Create a new int n = grid.length.
+4. Create a new int m = grid[0].length.
+5. Create a new int r = 0.
+6. Create a new int c = 0.
+7. Create a new int size = n*m;
+8. Create a new 2D list List<List<Integer>> matrix = new ArrayList<>();
+9. Create new int i = 0.
+10. Create new 2d array Integer[][] outarr = new Integer[n][m].
+11. While i < size.
 */
 import java.util.List;
 import java.util.ArrayList;
