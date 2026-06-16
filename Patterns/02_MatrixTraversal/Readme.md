@@ -155,7 +155,7 @@ These problems help build row-column thinking, nested loops, diagonal traversal,
 ## Problems
 
 8. [Reshape the Matrix](https://leetcode.com/problems/reshape-the-matrix/description/) (Easy)
-9. Shift 2D Grid (Easy)
+9. [Shift 2D Grid](https://leetcode.com/problems/shift-2d-grid/) (Easy)
 10. Matrix Cells in Distance Order (Easy)
 
 ## You Learn
