@@ -46,7 +46,16 @@ Steps:
 9. Create new int i = 0.
 10. Create new 2d array Integer[][] outarr = new Integer[n][m].
 11. While i < size.
+12. Set r = (i/k)%size. //It combines move forward and wrap around into a single formula.
+13. Set c = (i/k)%size. 
+14. Set outarr[r/m][c%m] = grid[i/m][i%m].
+15. Increament i++.
+16. For Integer ik: outarr.
+17. Set matrix.add(Arrays.asList(ik)).
+18. Return matrix.
+19. Stop.
 */
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,6 +114,15 @@ class Main {
         // }
     }
 }
+
+/*
+Time Complexity:
+first loop runs n*m.
+second loop runs n times.
+O(n*m)+(n)
+dominant term.
+O(n*m)
+*/
 
 /*
 Notes:
