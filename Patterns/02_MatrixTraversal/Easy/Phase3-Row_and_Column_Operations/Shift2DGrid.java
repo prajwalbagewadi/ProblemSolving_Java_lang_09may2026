@@ -32,6 +32,12 @@ n == grid[i].length
 0 <= k <= 100
 */
 
+
+/*
+Steps:
+1. Start.
+2. 
+*/
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,21 +61,21 @@ class Solution {
            //outarr[r/m][c%m]=grid[i/m][i%c];
            //matrix.get(r/m).add(c/m,grid[i/m][i%m]);
            outarr[r/m][c%m]=grid[i/m][i%m];
-           if(i%m==0) {
-               //matrix.add(Arrays.asList(outarr));
+           //if(i%m==m-1) {
+               //matrix.add(Arrays.asList(outarr[r/m]));
                //outarr = new Integer[m];
                //out.add(arr);
                //arr.clear(); //clears temp at every third interval.
                 
-            }
+            //}
            i++;
         }
-        
         for(Integer[] ik: outarr) {
-            for(Integer l: ik) {
-                System.out.print(l);
-            }
-            System.out.println();
+            matrix.add(Arrays.asList(ik));
+            //for(Integer l: ik) {
+                //System.out.print(l);
+            //}
+            //System.out.println();
         }
         return matrix;
     }
@@ -105,9 +111,11 @@ Formula:
 - newIndex = (oldIndex + k) % N.
 - Stop at every third interval (i%3==0)
 
+Imp: add rows to the list after building the entire shifted array.
+
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Arrays
 
 class Main {
     public static void main(String[] args) {
@@ -121,6 +129,14 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+912
+345
+678
+[[9, 1, 2], [3, 4, 5], [6, 7, 8]]
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 912
