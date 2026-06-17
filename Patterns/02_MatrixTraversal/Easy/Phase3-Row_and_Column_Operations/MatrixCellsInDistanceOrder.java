@@ -32,7 +32,13 @@ Constraints:
 
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        
+        int[] e = new int[2];
+        e = {rCenter,cCenter};
+        for(int r=0; r<rows; r++) {
+            for(int c=0; c<cols; c++) {
+                
+            }
+        }
     }
 }
 
@@ -40,5 +46,12 @@ class Solution {
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        Solution s = new Solution();
+        for(int[] i:s.allCellsDistOrder(1,2,0,0)) {
+            for(int j:i) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
     }
 }
