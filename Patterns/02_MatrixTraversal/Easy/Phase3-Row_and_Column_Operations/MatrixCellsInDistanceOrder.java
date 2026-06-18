@@ -48,6 +48,9 @@ class Ele {
         this.col = c;
         this.dist = d;
     }
+    public void print() {
+        System.out.println("["+row+","+col+","+dist+"]");
+    }
 }
 
 class Solution {
@@ -59,7 +62,9 @@ class Solution {
                 e.add(new Ele(r,c,((r-rCenter)+(c-cCenter))));
             }
         }
-        System.out.println(e);
+        for(Ele o : e) {
+            o.print();
+        }
         return out;
     }
 }
@@ -69,7 +74,8 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
-        for(int[] i:s.allCellsDistOrder(1,2,0,0)) {
+        //for(int[] i:s.allCellsDistOrder(1,2,0,0)) {
+        for(int[] i:s.allCellsDistOrder(2,2,0,1)) {
             for(int j:i) {
                 System.out.print(j);
             }
@@ -80,6 +86,16 @@ class Main {
 
 /*
 output:
+
+Start small. Ship something.
+[0,0,-1] //doubt
+[0,1,0]
+[1,0,0]
+[1,1,1]
+00
+00
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 [Ele@15db9742, Ele@6d06d69c]
