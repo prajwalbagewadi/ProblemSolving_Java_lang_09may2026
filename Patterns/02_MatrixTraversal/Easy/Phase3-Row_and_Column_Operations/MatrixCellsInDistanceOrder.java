@@ -30,15 +30,37 @@ Constraints:
 0 <= cCenter < cols
 */
 
+/*
+Algo:
+1. find dist of pair(r,c) from rCenter,cCenter 
+2. (r-rCenter)+(c-cCenter)
+3. Add r,c,dist to the list<Ele> e.
+*/
+
+import java.util.ArrayList;
+
+class Ele {
+    int row;
+    int col;
+    int dist;
+    public Ele(int r, int c, int d) {
+        this.row = r;
+        this.col = c;
+        this.dist = d;
+    }
+}
+
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
-        int[] e = new int[2];
-        e = {rCenter,cCenter};
+        ArrayList<Ele> e = new ArrayList<>();
+        int[][] out = new int[rows][cols];
         for(int r=0; r<rows; r++) {
             for(int c=0; c<cols; c++) {
-                
+                e.add(new Ele(r,c,((r-rCenter)+(c-cCenter))));
             }
         }
+        System.out.println(e);
+        return out;
     }
 }
 
@@ -55,3 +77,14 @@ class Main {
         }
     }
 }
+
+/*
+output:
+
+Start small. Ship something.
+[Ele@15db9742, Ele@6d06d69c]
+00
+
+=== Code Execution Successful ===
+*/
+
