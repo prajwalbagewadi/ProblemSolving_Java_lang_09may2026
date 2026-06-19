@@ -37,6 +37,7 @@ Algo:
 3. Add r,c,dist to the list<Ele> e.
 */
 
+import java.lang.Math;
 import java.util.ArrayList;
 
 class Ele {
@@ -59,7 +60,7 @@ class Solution {
         int[][] out = new int[rows][cols];
         for(int r=0; r<rows; r++) {
             for(int c=0; c<cols; c++) {
-                e.add(new Ele(r,c,((r-rCenter)+(c-cCenter))));
+                e.add(new Ele(r,c,(Math.abs(r-rCenter)+Math.abs(c-cCenter))));
             }
         }
         for(Ele o : e) {
@@ -85,7 +86,44 @@ class Main {
 }
 
 /*
+Notes:
+Distance: (r-rCenter)+(c-cCenter).
+- Gives the Distance in negative values.
+- Real world Distance can never be a negative value.
+- To sol that we the Absolute values.
+- Absolute values mean the distance from Zero on the number line. Ignoring weather the number is positive or negative.
+- Can be done using math.abs(value). 
+- Or |r-rCenter|+|c-cCenter|. math notation.
+- Correct java syntax Math.abs(r-rCenter)+Math.abs(c-cCenter).
+*/
+
+/*
 output:
+
+Start small. Ship something.
+[0,0,1]
+[0,1,0]
+[1,0,2]
+[1,1,1]
+00
+00
+
+=== Code Execution Successful ===
+
+ERROR!
+Main.java:62: error: illegal start of expression
+                e.add(new Ele(r,c,(|r-rCenter|+|c-cCenter|)));
+                                   ^
+ERROR!
+Main.java:62: error: illegal start of expression
+                e.add(new Ele(r,c,(|r-rCenter|+|c-cCenter|)));
+                                               ^
+Main.java:62: error: illegal start of expression
+                e.add(new Ele(r,c,(|r-rCenter|+|c-cCenter|)));
+                                                          ^
+3 errors
+
+=== Code Exited With Errors ===
 
 Start small. Ship something.
 [0,0,-1] //doubt
