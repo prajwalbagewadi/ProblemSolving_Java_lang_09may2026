@@ -95,6 +95,41 @@ Distance: (r-rCenter)+(c-cCenter).
 - Can be done using math.abs(value). 
 - Or |r-rCenter|+|c-cCenter|. math notation.
 - Correct java syntax Math.abs(r-rCenter)+Math.abs(c-cCenter).
+
+Sorting:
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Start small. Ship something.");
+        //int[] l = {8,3,5,2,9};
+        int[] l = {10,1,9,2,8,3,7};
+        int temp;
+        for(int i=0; i<l.length; i++) {
+            for(int j=0; j<l.length; j++) {
+                if(l[i]<l[j]) {
+                    temp = l[i];
+                    l[i] = l[j];
+                    l[j] = temp;
+                }
+            }
+        }
+        for(int i=0; i<l.length; i++) {
+            System.out.print(l[i]);
+        }
+    }
+}
+
+/*
+sorting output:
+
+Start small. Ship something.
+12378910
+=== Code Execution Successful ===
+
+Start small. Ship something.
+23589
+=== Code Execution Successful ===
+
 */
 
 /*
