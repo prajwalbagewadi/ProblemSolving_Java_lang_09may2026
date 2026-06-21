@@ -54,6 +54,24 @@ class Ele {
     }
 }
 
+class Mech {
+    public ArrayList<Ele> sortDist(ArrayList<Ele> list) {
+        for(int i=0; i<list.size(); i++) {
+            for(int j=0; j<list.size()-i-1; j++) {
+                Ele t1 = list.get(j);
+                Ele t2 = list.get(j+1);
+                Ele temp;
+                if(t1.dist>t2.dist) {
+                    temp = t1;
+                    list.set(j,t2); //list.set(index,data);
+                    list.set(j+1,temp);
+                }
+            }
+        }
+        return list;
+    }
+}
+
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
         ArrayList<Ele> e = new ArrayList<>();
@@ -63,7 +81,8 @@ class Solution {
                 e.add(new Ele(r,c,(Math.abs(r-rCenter)+Math.abs(c-cCenter))));
             }
         }
-        for(Ele o : e) {
+        Mech m = new Mech();
+        for(Ele o : m.sortDist(e)) {
             o.print();
         }
         return out;
@@ -97,7 +116,36 @@ Distance: (r-rCenter)+(c-cCenter).
 - Correct java syntax Math.abs(r-rCenter)+Math.abs(c-cCenter).
 
 Sorting:
+- Process of arranging data in specific order (Usually ascending or descending) or lexicographical order.
+- Most sorting algorithms repeatedly compare elements and move them to their correct positions.
+- Eg: [8,3,5].
+- compare 8 and 3.
+- 8 > 3 - swap.
+[3,8,5]
+- compare 8 and 5.
+- 8 > 5 - swap.
+[3,5,8]
 
+- j < size - i - 1 because after each pass, the largest element is already fixed at the end,
+so we skip it (-i) and stop before (j+1) goes out of bound (-1).
+
+// Swapping by distances:
+   0 1 2 3 
+- [1,0,2,1]
+- i=0 
+- j=0[1] j=0 < 3=4-0-1
+- - j=0[1]>j+1[0] - swap;
+- - [0,1,2,1]
+- - j++
+- - j=1[1]>j+1[2] - noSwap;
+- - [0,1,2,1]
+- - j=2[2]>j+1[1] - swap; 
+- - [0,1,1,2];
+- i=1 
+- j=0[0] j=0 < 2=4-1-1. 
+
+
+// Unoptimized approach.
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
@@ -129,7 +177,6 @@ Start small. Ship something.
 Start small. Ship something.
 23589
 === Code Execution Successful ===
-
 */
 
 /*
