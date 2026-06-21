@@ -37,8 +37,19 @@ Algo:
 3. Add r,c,dist to the list<Ele> e.
 */
 
-import java.lang.Math;
+/*
+Steps:
+1. Start.
+2. Take input int rows, int cols, int rCenter, int cCenter.
+3. Create a new ArrayList of class Ele{x,y,dist} ArrayList<Ele> e = new ArrayList<>();
+4. Create a 2D array int[][] out = new int[rows*cols][2];
+5. For int r=0 to r<rows (increament r++).
+6. For int c=0 to c<cols (increament c++).
+*/
+
+import java.lang.Math;6. For int i=0 to i<rows (increament i++).
 import java.util.ArrayList;
+import java.util.List;
 
 class Ele {
     int row;
@@ -75,16 +86,32 @@ class Mech {
 class Solution {
     public int[][] allCellsDistOrder(int rows, int cols, int rCenter, int cCenter) {
         ArrayList<Ele> e = new ArrayList<>();
-        int[][] out = new int[rows][cols];
+        int[][] out = new int[rows*cols][2];
+        //ArrayList<ArrayList<Integer>> temp = new ArrayList<>();
+        //ArrayList<Integer> d = new ArrayList<>();
         for(int r=0; r<rows; r++) {
             for(int c=0; c<cols; c++) {
                 e.add(new Ele(r,c,(Math.abs(r-rCenter)+Math.abs(c-cCenter))));
             }
         }
         Mech m = new Mech();
+        int i=0;
         for(Ele o : m.sortDist(e)) {
-            o.print();
+            out[i][0]=o.row; //for index 'i' add row.
+            out[i][1]=o.col; //for the same index 'i' add col. 
+            i++; //increament.
+            //temp.add(o.row);
+            //temp.add(o.col);
+            //d.add(o.row,o.col);
+            //temp.add(new ArrayList(o.row,o.col));
+            //for(int i=0; i<rows*cols; i++) {
+                //out[i][i%cols]=List.toArray(temp);
+                // d.add(o.row,o.col);
+                // temp.add(i,d);
+            //}
+            //o.print();
         }
+        //System.out.println(temp);
         return out;
     }
 }
@@ -144,6 +171,13 @@ so we skip it (-i) and stop before (j+1) goes out of bound (-1).
 - i=1 
 - j=0[0] j=0 < 2=4-1-1. 
 
+//Add the elements to 2D array.
+- for(int i=0; i<rows*cols; i++) {
+    forEach(i) {
+        out[i][0] = o.row;
+        out[i][1] = o.col;
+    }
+}
 
 // Unoptimized approach.
 class Main {
@@ -171,6 +205,45 @@ class Main {
 sorting output:
 
 Start small. Ship something.
+[0,1,0]
+[0,0,1]
+[1,1,1]
+[1,0,2]
+[]
+01
+00
+11
+10
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+[0,1,0]
+[0,0,1]
+[1,1,1]
+[1,0,2]
+[[0, 0, 1, 1], [0, 0, 1, 1], [0, 0, 1, 1], [0, 0, 1, 1]]
+00
+00
+00
+00
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
+[0,1,0]
+[0,0,1]
+[1,1,1]
+[1,0,2]
+[[0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1], [0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1]]
+00
+00
+00
+00
+
+=== Code Execution Successful ===
+
+Start small. Ship something.
 12378910
 === Code Execution Successful ===
 
@@ -181,6 +254,27 @@ Start small. Ship something.
 
 /*
 output:
+
+ERROR!
+Main.java:91: error: no suitable method found for toArray(ArrayList<Integer>)
+                out[i][i%cols]=List.toArray(temp);
+                                   ^
+    method Collection.toArray(IntFunction) is not applicable
+      (argument mismatch; ArrayList<Integer> cannot be converted to IntFunction)
+    method List.toArray(Object[]) is not applicable
+      (argument mismatch; ArrayList<Integer> cannot be converted to Object[])
+Note: Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+1 error
+
+=== Code Exited With Errors ===
+
+ERROR!
+Main.java:90: error: incompatible types: int[] cannot be converted to int
+                out[i][i%cols] = ae;
+                                 ^
+1 error
+
+=== Code Exited With Errors ===
 
 Start small. Ship something.
 [0,0,1]
