@@ -57,8 +57,21 @@ Steps:
         - For int j=0 to j<list.size()-i(largest element)-1(to stop j+1 from exiding Arraybounds) (increament j++).
         - Create var Ele t1=list.get(j).
         - Create var Ele t2=list.get(j+1).
+        - Create vat Ele temp.
+        - Check if(t1.dist>t2.dist).
+        - Set temp = t1.
+        - Set list.set(j,t2).
+        - Set list.set(j+1,temp).
+        - Return list.
     }
 }
+9. Create int i=0.
+10. For Ele o : m.sortDist(e).
+11. Set out[i][0]=o.row.
+12. Set out[i][1]=o.col.
+13. Increament i++.
+14. Return out.
+15. Stop.
 */
 
 import java.lang.Math;6. For int i=0 to i<rows (increament i++).
