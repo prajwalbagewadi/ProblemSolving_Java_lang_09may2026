@@ -42,9 +42,23 @@ Steps:
 1. Start.
 2. Take input int rows, int cols, int rCenter, int cCenter.
 3. Create a new ArrayList of class Ele{x,y,dist} ArrayList<Ele> e = new ArrayList<>();
+-  class Ele {
+    - create new vars int row,col,dist
+    - Create constructor public Ele(int r,int c,int d) {//Assignment}
+}
 4. Create a 2D array int[][] out = new int[rows*cols][2];
 5. For int r=0 to r<rows (increament r++).
 6. For int c=0 to c<cols (increament c++).
+7. Add into e e.add(new Ele(r,c,(Math.abs(r-rCenter )+Math.abs(c-cCenter)))). 
+8. Create new class Mech.
+-  class Mech {
+    - create method public ArrayList<Ele> sortDist(ArrayList<Ele> list) {
+        - For int i=0 to i<list.size() (increament i++).
+        - For int j=0 to j<list.size()-i(largest element)-1(to stop j+1 from exiding Arraybounds) (increament j++).
+        - Create var Ele t1=list.get(j).
+        - Create var Ele t2=list.get(j+1).
+    }
+}
 */
 
 import java.lang.Math;6. For int i=0 to i<rows (increament i++).
@@ -317,4 +331,3 @@ Start small. Ship something.
 
 === Code Execution Successful ===
 */
-
