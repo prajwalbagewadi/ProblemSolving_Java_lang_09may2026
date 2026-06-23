@@ -25,21 +25,31 @@ import java.util.List;
 import java.util.ArrayList;
 
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
+    public List<Integer> spiralOrder([][] matrix) {
         int n=matrix.length;
         int m=matrix[0].length;
+        int top=0;
+        int left=0;
+        int bottom=m-1;
+        int right=m-1;
         List<Integer> out = new ArrayList<>();
-        for(int r=0; r<m; r++) {
-            out.add(matrix[0][r]);
-        }
-        for(int c=m-1-1; c<n; c++) { //skipping 0 index
-            out.add(matrix[c][m-1]);
-        }
-        for(int r=n-1-1; r>=0; r--) {
-            out.add(matrix[m-1][r]);
-        }
-        for(int c=n-1-1; c>=0+1; c--) {
-            out.add(matrix[c][0]);
+        while(top<bottom && left<right) { // inner ring
+            for(int r=0; r<m; r++) {
+                out.add(matrix[top][r]); //top
+            }
+            for(int c=m-1-1; c<n; c++) { //skipping
+                out.add(matrix[c][right]); //right
+            }
+            for(int r=n-1-1; r>=0; r--) {
+                out.add(matrix[bottom][r]); //bottom
+            }
+            for(int c=n-1-1; c>=0+1; c--) {
+                out.add(matrix[c][left]); //left
+            }
+            top++;
+            left++;
+            bottom--;
+            right--;
         }
         return out;
     }
