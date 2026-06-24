@@ -65,6 +65,31 @@ class Main {
 }
 
 /*
+Notes:
+123
+456
+789
+
+Start=0
+End=3
+
+Top=0 
+For c=top c<End c++
+Prints 1,2,3
+Top++ so Top=1
+
+Right=colsEnd-1
+For r= r>=0 r--
+Prints 6,9
+Right-- so Right=1
+
+Bottom=colsEnd-1
+For c=Bottom-1 c<
+
+
+*/
+
+/*
 Output:
 
 [1, 2, 3, 9, 9, 8, 7, 5, 6, 5, 8, 5, 4, 5]
