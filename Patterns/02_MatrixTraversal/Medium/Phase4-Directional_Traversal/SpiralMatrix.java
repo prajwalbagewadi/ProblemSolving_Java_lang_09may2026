@@ -33,23 +33,28 @@ class Solution {
         int bottom=m-1;
         int right=m-1;
         List<Integer> out = new ArrayList<>();
-        while(top<=bottom && left<=right) { // inner ring
+        
+        //while(top<=bottom && left<=right) { // inner ring
+        while(top<=bottom) {
             for(int c=top; c<m; c++) {
                 out.add(matrix[top][c]); //top
             }
-            top++;
-            for(int r=right; r<n; r++) { //skipping
+            //top++;
+            for(int r=top+1; r<n; r++) { //skipping
                 out.add(matrix[r][right]); //right
             }
-            right--;
-            for(int c=bottom; c>=0; c--) {
+            //right--;
+            for(int c=bottom-1; c>=0; c--) {
                 out.add(matrix[bottom][c]); //bottom
             }
             bottom--;
-            for(int r=left; r>=0+1; r--) {
+            for(int r=bottom-1; r>=1; r--) {
                 out.add(matrix[r][left]); //left
             }
+            top++;
+            right--;
             left++;
+            bottom--;
         }
         return out;
     }
@@ -130,6 +135,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 6, 9, 8, 7]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 9, 9, 8, 7, 5, 6, 5, 8, 5, 4, 5]
 
