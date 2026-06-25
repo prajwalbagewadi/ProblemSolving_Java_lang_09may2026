@@ -66,6 +66,45 @@ class Main {
 
 /*
 Notes:
+0   2 
+123 0
+456
+789 2
+
+Start=0
+End=3
+
+While Top <= Bottom 
+
+Top=Start
+For c=Top c<End c++
+Matrix[Top][c]
+Prints 1,2,3
+
+
+Right=End-1 (cols end)
+For r=Top+1 r<End r++
+Matrix[r][Right]
+Prints 6,9
+
+
+Bottom=End-1 (rows end)
+For c=Bottom-1 c>=Start c--
+Matrix[Bottom][c]
+Prints 8,7
+
+
+Left=Start (cols start)
+For r=Bottom-1 >=Start+1 r--
+Matrix[r][Left]
+Prints 4
+
+
+Top++ so Top=1
+Right-- so Right=1
+Bottom-- so Bottom=1
+Left++ so Left=1
+
 123
 456
 789
