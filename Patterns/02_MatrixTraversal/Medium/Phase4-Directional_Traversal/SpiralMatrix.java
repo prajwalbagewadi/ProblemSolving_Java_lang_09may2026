@@ -26,6 +26,23 @@ import java.util.ArrayList;
 
 class Solution {
     public List<Integer> spiralOrder(int [][] matrix) {
+        List<Integer> out = new ArrayList<>();
+        int top=0;
+        int right=matrix[0].length-1;    
+        while(top<=right) {
+            for(int c=top; c<=right; c++) {
+                out.add(matrix[top][c]);
+            }
+            top++;
+            right--;
+        }
+        return out;
+    }
+}
+
+/*
+class Solution {
+    public List<Integer> spiralOrder(int [][] matrix) {
         int n=matrix.length;
         int m=matrix[0].length;
         int top=0;
@@ -59,6 +76,7 @@ class Solution {
         return out;
     }
 }
+*/
 
 class Main {
     public static void main(String[] args) {
@@ -135,6 +153,14 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 5]
+
+=== Code Execution Successful ===
+
+[1, 2]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 6, 9, 8, 7]
 
