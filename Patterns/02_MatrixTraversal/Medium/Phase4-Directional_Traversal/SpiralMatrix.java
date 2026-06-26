@@ -29,9 +29,13 @@ class Solution {
         List<Integer> out = new ArrayList<>();
         int top=0;
         int right=matrix[0].length-1;    
+        int bottom=matrix.length-1;
         while(top<=right) {
             for(int c=top; c<=right; c++) {
                 out.add(matrix[top][c]);
+            }
+            for(int r=top+1; r<=bottom; r++) {
+                out.add(matrix[r][right]);
             }
             top++;
             right--;
@@ -153,6 +157,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 6, 9, 5, 8]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 5]
 
