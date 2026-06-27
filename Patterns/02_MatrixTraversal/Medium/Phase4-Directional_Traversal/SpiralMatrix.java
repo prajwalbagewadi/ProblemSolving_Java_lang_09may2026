@@ -30,15 +30,24 @@ class Solution {
         int top=0;
         int right=matrix[0].length-1;    
         int bottom=matrix.length-1;
+        int left=matrix.length-1;
         while(top<=right) {
             for(int c=top; c<=right; c++) {
-                out.add(matrix[top][c]);
+                out.add(matrix[top][c]); //top (1,2,3)
             }
             for(int r=top+1; r<=bottom; r++) {
-                out.add(matrix[r][right]);
+                out.add(matrix[r][right]); //right (6,9)
+            }
+            for(int c=bottom-1; c>=top; c--) {
+                out.add(matrix[bottom][c]); //bottom (8,7)
+            }
+            for(int r=left-1; r>=top+1; r--) {
+                out.add(matrix[r][left]); //left (4)
             }
             top++;
             right--;
+            bottom--;
+            left++;
         }
         return out;
     }
@@ -157,6 +166,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 6, 9, 8, 7, 5]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 6, 9, 5, 8]
 
