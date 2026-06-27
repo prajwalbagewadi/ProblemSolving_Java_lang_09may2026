@@ -31,7 +31,7 @@ class Solution {
         int right=matrix[0].length-1;    
         int bottom=matrix.length-1;
         int left=matrix.length-1;
-        while(top<=right) {
+        while(top<=right && left<=bottom) {
             for(int c=top; c<=right; c++) {
                 out.add(matrix[top][c]); //top (1,2,3)
             }
@@ -166,6 +166,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 6, 9, 8, 7, 6]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 6, 9, 8, 7, 5]
 
