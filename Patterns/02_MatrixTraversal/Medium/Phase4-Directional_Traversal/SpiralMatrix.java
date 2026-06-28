@@ -48,7 +48,7 @@ class Solution {
                 out.add(matrix[bottom][i]);
             }
             //left
-            for(int i=bottom-1; i>=top+1; i--) {
+            for(int i=bottom-1; i>top+1; i--) {
                 out.add(matrix[i][left]);
             }
             top++;
