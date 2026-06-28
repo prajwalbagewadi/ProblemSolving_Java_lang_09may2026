@@ -27,22 +27,29 @@ import java.util.ArrayList;
 class Solution {
     public List<Integer> spiralOrder(int [][] matrix) {
         List<Integer> out = new ArrayList<>();
+        
+        //corners
         int top=0;
         int right=matrix[0].length-1;    
         int bottom=matrix.length-1;
-        int left=matrix.length-1;
-        while(top<=right && left<=bottom) {
-            for(int c=top; c<=right; c++) {
-                out.add(matrix[top][c]); //top (1,2,3)
+        int left=0;
+        
+        while(top<=bottom && left<=right) {
+            //top
+            for(int i=left; i<=right; i++) {
+                out.add(matrix[top][i]);
             }
-            for(int r=top+1; r<=bottom; r++) {
-                out.add(matrix[r][right]); //right (6,9)
+            //right
+            for(int i=top+1; i<=bottom; i++) {
+                out.add(matrix[i][right]); //right (6,9)
             }
-            for(int c=bottom-1; c>=top; c--) {
-                out.add(matrix[bottom][c]); //bottom (8,7)
+            //bottom
+            for(int i=right-1; i>=left; i--) {
+                out.add(matrix[bottom][i]);
             }
-            for(int r=left-1; r>=top+1; r--) {
-                out.add(matrix[r][left]); //left (4)
+            //left
+            for(int i=bottom-1; i>=top+1; i--) {
+                out.add(matrix[i][left]);
             }
             top++;
             right--;
@@ -94,14 +101,65 @@ class Solution {
 class Main {
     public static void main(String[] args) {
         Solution s = new Solution();
-        int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
+        //int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
+        int[][] mat = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
         System.out.println(s.spiralOrder(mat));
         
     }
 }
 
 /*
+Testcase failed:
+[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Expected:
+[1,2,3,4,8,12,11,10,9,5,6,7]
+*/
+
+/*
 Notes:
+
+    0 | 1 | 2 | 3
+------------------
+0 | 1 | 2 | 3 | 4
+1 | 5 | 6 | 7 | 8
+2 | 9 | 10| 11| 12
+
+top=0
+right=matrix[0].length-1
+bottom=matrix.length-1;
+left=0
+
+While(top<=bottom && left<=right) {
+
+//Top
+for(int i=left; i<=right; i++) {
+    System.out.println(matrix[top][i]);
+    //1,2,3,4
+}
+
+//right
+for(int i=top+1; i<=bottom; i++) {
+    System.out.println(matrix[i][right]);
+    //8,12
+}
+
+//bottom 
+for(int i=right-1; i>=left; i--) {
+    System.out.println(matrix[bottom][i]);
+}
+
+//left
+for(int i=bottom-1; i>=top+1; i--) {
+    System.out.println(matrix[i][left]);
+}
+
+top++;
+right--;
+bottom--;
+left++;
+
+}
+
 0   2 
 123 0
 456
@@ -166,6 +224,14 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7, 6]
+
+=== Code Execution Successful ===
+
+[1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 6, 9, 8, 7, 6]
 
