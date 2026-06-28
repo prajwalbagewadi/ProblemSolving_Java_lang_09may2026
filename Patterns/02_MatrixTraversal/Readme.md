@@ -177,7 +177,7 @@ These problems help build row-column thinking, nested loops, diagonal traversal,
 
 ## Problems
 
-11. Spiral Matrix (Medium)
+11. [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/) (Medium)
 12. Spiral Matrix II (Medium)
 13. Walking Robot Simulation (Medium)
 

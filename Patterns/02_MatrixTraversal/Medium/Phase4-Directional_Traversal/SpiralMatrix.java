@@ -21,6 +21,40 @@ n == matrix[i].length
 -100 <= matrix[i][j] <= 100
 */
 
+/*
+Steps:
+1. Start.
+2. Take input 2D array int[][] matrix.
+3. Create new list List<Integer> out = new ArrayList<>().
+4. Create new int top = 0.
+5. Create new int right = matrix[0].length-1.
+6. Create new int bottom = matrix.length-1.
+7. Create new int left = 0.
+8. While top<=bottom && left<=right.
+9. For int i=left to i<=right (increament i++);
+10. Add to out.add(matrix[top][i]).
+11. For int int=top+1 to i<=bottom (increament i++);
+12. Add to out.add(matrix[i][right]).
+13. Check if matrix.length != matrix[0].length.
+14. Check if top != bottom.
+15. For int i=right-1 to i>=left (decrement i--);
+16. Add to out.add(matrix[bottom][i]).
+17. Check if left != right.
+18. For int i=bottom-1 to i>=top+1 (decreament i--);
+19. Add to out.add(matrix[i][left]).
+20. Else -
+21. For int i=right-1 to i>=left (decrement i--);
+22. Add to out.add(matrix[bottom][i]). 
+23. For int i=bottom-1 to i>=top+1 (decreament i--);
+24. Add to out.add(matrix[i][left]).
+25. Increament top++.
+26. Decreament right--.
+27. Decreament bottom--.
+28. Increament left++.
+29. Return out.
+30. Stop.
+*/
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -43,7 +77,7 @@ class Solution {
             for(int i=top+1; i<=bottom; i++) {
                 out.add(matrix[i][right]); //right (6,9)
             }
-            if(matrix.length!=matrix[0].length) {
+            if(matrix.length!=matrix[0].length) { //check if the matrix is rectangle to handle the edge cases.
                 if(top!=bottom) {
                     //bottom
                     for(int i=right-1; i>=left; i--) {
@@ -123,6 +157,12 @@ class Main {
         
     }
 }
+
+/* 
+Time complexity:
+O(n*m) n=rows and m=cols
+As each element is visited once.
+*/
 
 /*
 Testcase failed:
