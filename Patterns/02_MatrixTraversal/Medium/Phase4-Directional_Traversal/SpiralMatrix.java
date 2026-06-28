@@ -43,7 +43,7 @@ class Solution {
             for(int i=top+1; i<=bottom; i++) {
                 out.add(matrix[i][right]); //right (6,9)
             }
-            if(right!=bottom) {
+            if(matrix.length!=matrix[0].length) {
                 if(top!=bottom) {
                     //bottom
                     for(int i=right-1; i>=left; i--) {
@@ -52,7 +52,7 @@ class Solution {
                 }
                 if(left!=right) {
                     //left
-                    for(int i=bottom-1; i>top+1; i--) {
+                    for(int i=bottom-1; i>=top+1; i--) {
                         out.add(matrix[i][left]);
                     }
                 }
@@ -240,6 +240,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 4, 8, 12, 11, 10, 9, 6, 7]
 
