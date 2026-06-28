@@ -43,13 +43,29 @@ class Solution {
             for(int i=top+1; i<=bottom; i++) {
                 out.add(matrix[i][right]); //right (6,9)
             }
-            //bottom
-            for(int i=right-1; i>=left; i--) {
-                out.add(matrix[bottom][i]);
+            if(right!=bottom) {
+                if(top!=bottom) {
+                    //bottom
+                    for(int i=right-1; i>=left; i--) {
+                        out.add(matrix[bottom][i]);
+                    }
+                }
+                if(left!=right) {
+                    //left
+                    for(int i=bottom-1; i>top+1; i--) {
+                        out.add(matrix[i][left]);
+                    }
+                }
             }
-            //left
-            for(int i=bottom-1; i>top+1; i--) {
-                out.add(matrix[i][left]);
+            else {
+                //bottom
+                for(int i=right-1; i>=left; i--) {
+                    out.add(matrix[bottom][i]);
+                }
+               //left
+               for(int i=bottom-1; i>=top+1; i--) {
+                   out.add(matrix[i][left]);
+               }
             }
             top++;
             right--;
@@ -224,6 +240,10 @@ For c=Bottom-1 c<
 
 /*
 Output:
+
+[1, 2, 3, 4, 8, 12, 11, 10, 9, 6, 7]
+
+=== Code Execution Successful ===
 
 [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7, 6]
 
