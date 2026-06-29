@@ -25,25 +25,32 @@ class Solution {
        int bottom=n-1;
        int left=0;
        int cnt=1;
-       //top
-       for(int i=left; i<=right; i++) {
-           out[top][i]=cnt;
-           cnt++;
-       }
-       //right
-       for(int i=top+1; i<=bottom; i++) {
-           out[i][right]=cnt;
-           cnt++;
-       }
-       //bottom
-       for(int i=right-1; i>=left; i--) {
-           out[bottom][i]=cnt;
-           cnt++;
-       }
-       //left
-       for(int i=bottom-1; i>=top+1; i--) {
-           out[i][left]=cnt;
-           cnt++;
+       
+       while(top<=bottom && left<=right) {
+            //top
+            for(int i=left; i<=right; i++) {
+                out[top][i]=cnt;
+                cnt++;
+            }
+            //right
+            for(int i=top+1; i<=bottom; i++) {
+                out[i][right]=cnt;
+                cnt++;
+            }
+            //bottom
+            for(int i=right-1; i>=left; i--) {
+                out[bottom][i]=cnt;
+                cnt++;
+            }
+            //left
+            for(int i=bottom-1; i>=top+1; i--) {
+                out[i][left]=cnt;
+                cnt++;
+            }
+            top++;
+            right--;
+            bottom--;
+            left++;
        }
        return out;
     }
@@ -65,6 +72,13 @@ class Main {
 
 /*
 output:
+
+Start small. Ship something.
+123
+894
+765
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 123
