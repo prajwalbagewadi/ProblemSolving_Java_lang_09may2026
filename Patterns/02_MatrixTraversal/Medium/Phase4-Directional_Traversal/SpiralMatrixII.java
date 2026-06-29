@@ -20,19 +20,57 @@ Constraints:
 class Solution {
     public int[][] generateMatrix(int n) {
        int[][] out = new int[n][n];
-       for(int i=0; i<n; i++) {
-        for(int j=0; j<n; j++) {
-            int top=0;
-            int right=n-1;
-            int bottom=n-1;
-            int left=0;
-        }
+       int top=0;
+       int right=n-1;
+       int bottom=n-1;
+       int left=0;
+       int cnt=1;
+       //top
+       for(int i=left; i<=right; i++) {
+           out[top][i]=cnt;
+           cnt++;
        }
+       //right
+       for(int i=top+1; i<=bottom; i++) {
+           out[i][right]=cnt;
+           cnt++;
+       }
+       //bottom
+       for(int i=right-1; i>=left; i--) {
+           out[bottom][i]=cnt;
+           cnt++;
+       }
+       //left
+       for(int i=bottom-1; i>=top+1; i--) {
+           out[i][left]=cnt;
+           cnt++;
+       }
+       return out;
     }
 }
 
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        int n=3;
+        Solution s = new Solution();
+        for(int[] i: s.generateMatrix(n)) {
+            for(int j : i) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
     }
 }
+
+/*
+output:
+
+Start small. Ship something.
+123
+804
+765
+
+=== Code Execution Successful ===
+
+*/
