@@ -70,5 +70,9 @@ class Solution {
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
+        Solution s = new Solution();
+        int[] cmd = {4,-1,3};
+        int[][] obs = {{}};
+        System.out.println(s.robotSim(cmd,obs));
     }
 }
