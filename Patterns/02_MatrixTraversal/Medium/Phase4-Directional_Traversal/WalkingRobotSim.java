@@ -63,7 +63,20 @@ The answer is guaranteed to be less than 231.
 
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        
+        int cm = 0;
+        int[] current pos = {0,0};
+        for(int i=0; i<commands.lenght; i++) {
+            if(commands[i]=-1) {
+                System.out.println("Turn right 90.");
+            }
+            if(commands[i]=-2) {
+                System.out.println("Turn left 90.");
+            }
+            else {
+                if()
+                pos[1]=commands[i];
+            }
+        }
     }
 }
 
