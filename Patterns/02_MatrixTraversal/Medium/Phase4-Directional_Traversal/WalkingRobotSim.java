@@ -89,3 +89,48 @@ class Main {
         System.out.println(s.robotSim(cmd,obs));
     }
 }
+
+/*
+Notes:
+
+TURN:
+-1: Turn right 90.
+-2: Turn left 90.
+
+Directions:
+- North: 
+1. No TURNS initial position.
+2. forward command 'Y' change.
+
+- East: 
+1. ONE left turn.
+2. Command -1.
+3. forward command 'X' change.
+
+- South: 
+1. Two Left turns or Two Right turns.
+2. commands(-1,-1) or (-2,-2) 
+3. forward command '-Y' change.
+    - Eg:  commands (-1,-1,3)
+    - (0,0) NORTH initial pos.
+    - (-1) Turn left 90. WEST.
+    - (-1) Turn left 90. SOUTH.
+    - (0,1) SOUTH.
+    - (0,2) SOUTH.
+    - (0,3) SOUTH. Final pos (0,3) SOUTH.
+
+- West:
+1. ONE left Turn or Three Right Turns.
+2. commands (-2) or (-1,-1-1) 
+3. forward command '-x' change.
+    - Eg:
+
+TestRun:
+Commands = 4,-1,3
+
+ Initial Pos 0,0 north.
+
+- 4 north 
+
+
+*/
