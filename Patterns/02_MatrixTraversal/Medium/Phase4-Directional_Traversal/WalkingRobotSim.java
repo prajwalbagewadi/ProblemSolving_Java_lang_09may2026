@@ -100,30 +100,34 @@ TURN:
 Directions:
 - North: 
 1. No TURNS initial position.
-2. forward command 'Y' change.
+2. forward command increases Y(+Y).
 
 - East: 
-1. ONE left turn.
+1. ONE Right turn.
 2. Command -1.
-3. forward command 'X' change.
+3. forward command increases X(+X).
 
 - South: 
 1. Two Left turns or Two Right turns.
-2. commands(-1,-1) or (-2,-2) 
-3. forward command '-Y' change.
+2. commands(-2,-2) or (-1,-1) 
+3. forward command decreases Y(-Y).
     - Eg:  commands (-1,-1,3)
     - (0,0) NORTH initial pos.
-    - (-1) Turn left 90. WEST.
-    - (-1) Turn left 90. SOUTH.
-    - (0,1) SOUTH.
-    - (0,2) SOUTH.
-    - (0,3) SOUTH. Final pos (0,3) SOUTH.
+    - (-1) Turn Right 90. EAST.
+    - (-1) Turn Right 90. SOUTH.
+    - (0,-1) SOUTH.
+    - (0,-2) SOUTH.
+    - (0,-3) SOUTH. Final pos (0,-3) SOUTH.
 
 - West:
 1. ONE left Turn or Three Right Turns.
-2. commands (-2) or (-1,-1-1) 
-3. forward command '-x' change.
-    - Eg:
+2. commands (-2) or (-1,-1,-1) 
+3. forward command decreases X(-X).
+    - Eg: commands (-2,2)
+    - (0,0) NORTH initial pos.
+    - (-2) Turn Left 90. WEST.
+    - (-1,0) WEST.
+    - (-2,0) WEST. Final pos (-2,0) WEST.
 
 TestRun:
 Commands = 4,-1,3
@@ -131,6 +135,5 @@ Commands = 4,-1,3
  Initial Pos 0,0 north.
 
 - 4 north 
-
 
 */
