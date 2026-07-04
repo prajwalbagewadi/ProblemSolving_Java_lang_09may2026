@@ -61,22 +61,26 @@ commands[i] is either -2, -1, or an integer in the range [1, 9].
 The answer is guaranteed to be less than 231.
 */
 
+/*
+Algo:
+1. Start.
+2. Start from pos (0,0) north.
+3. Get the first command and Check if it is a turn (-1,-2).
+4. If turn
+5. Check direction 
+*/
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        int cm = 0;
-        int[] current pos = {0,0};
-        for(int i=0; i<commands.lenght; i++) {
-            if(commands[i]=-1) {
-                System.out.println("Turn right 90.");
-            }
-            if(commands[i]=-2) {
-                System.out.println("Turn left 90.");
-            }
-            else {
-                if()
-                pos[1]=commands[i];
-            }
+        int edist = 0;
+        int x = 0;
+        int y = 0;
+        int[] currentPos = {x,y};
+        for(int i=0; i<commands.length; i++) {
+            System.out.println(commands[i]);
+            
         }
+        return edist;
     }
 }
 
