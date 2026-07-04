@@ -131,9 +131,16 @@ Directions:
 
 TestRun:
 Commands = 4,-1,3
-
- Initial Pos 0,0 north.
-
-- 4 north 
-
+    - Initial Pos 0,0 north.
+    - 1st command (4)
+        - (0,1) NORTH.
+        - (0,2) NORTH.
+        - (0,3) NORTH.
+        - (0,4) NORTH.
+    - 2nd command (-1) 
+        - (0,4) Turn Right 90 EAST.
+    - 3rd command (3)
+        - (1,4)
+        - (2,4)
+        - (3,4) Final pos (3,4) EAST.
 */
