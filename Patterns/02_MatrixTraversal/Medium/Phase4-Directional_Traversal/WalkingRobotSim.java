@@ -64,10 +64,13 @@ The answer is guaranteed to be less than 231.
 /*
 Algo:
 1. Start.
-2. Start from pos (0,0) north.
-3. Get the first command and Check if it is a turn (-1,-2).
-4. If turn
-5. Check direction 
+2. Create int vars x and y and set x=0 and y=0.
+3. Create array int[] pos and set it (0,0).
+4. Create a int var direction to store direction (0=North, 1=East, 2=South, 3=West). 
+5. Get the first command from the commands[] array.
+6. 
+7. Check Turn and calculate the direction 
+8. Else proceed towards the point.
 */
 
 class Solution {
