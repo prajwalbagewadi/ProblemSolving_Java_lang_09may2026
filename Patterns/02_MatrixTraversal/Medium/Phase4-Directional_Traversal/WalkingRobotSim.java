@@ -86,7 +86,11 @@ class Solution {
         for(int i=0; i<commands.length; i++) {
             if(commands[i]==-1 || commands[i]==-2) {
                 if(commands[i]==-1) {
-                    
+                    //Right Turn
+                    direction+1;
+                }
+                if(commands[i]==-2) {
+                    //Left Turn
                 }
             }
             else {
