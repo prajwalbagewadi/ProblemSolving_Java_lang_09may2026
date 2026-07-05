@@ -77,6 +77,8 @@ Algo:
 8. Else proceed towards the point.
 */
 
+import java.lang.Math;
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int eDist=0;
@@ -85,43 +87,50 @@ class Solution {
         int direction=0; //0=North, 1=East, 2=South, 3=West
         for(int i=0; i<commands.length; i++) {
             if(commands[i]==-1 || commands[i]==-2) {
-                if(commands[i]==-1) {
-                    //Right Turn
-                    direction+1;
+                if(direction<=3) {
+                    if(commands[i]==-1) {
+                        //Right Turn
+                        Math.abs(direction+1);
+                    }
+                    if(commands[i]==-2) {
+                        //Left Turn
+                        Math.abs(direction-1);
+                    }
                 }
-                if(commands[i]==-2) {
-                    //Left Turn
-                }
+                System.out.println("direction:"+direction);
             }
             else {
                 switch(direction) {
-                    case: 0 {
+                    case 0: { 
                         //North
                         y=commands[i];
                     }
                     break;
-                    case: 1 {
+                    case 1: {
                         //East
                         x=commands[i];
                     }
                     break;
-                    case: 2 {
+                    case 2: {
                         //South
                         y=-commands[i];
                     }
                     break;
-                    case: 3 {
+                    case 3: {
                         //West
                         x=-commands[i];
                     }
                     break;
-                    default {
+                    default: {
                         System.out.println("Error in direction.");
                     }
                 }
             }
         }
+        System.out.println("x="+x);
+        System.out.println("y="+y);
         eDist = (x*x) + (y*y);
+        return eDist;
     }
 }
 
@@ -134,6 +143,19 @@ class Main {
         System.out.println(s.robotSim(cmd,obs));
     }
 }
+
+/*
+Output:
+
+Start small. Ship something.
+direction:0
+x=0
+y=3
+9
+
+=== Code Execution Successful ===
+
+*/
 
 /*
 Notes:
