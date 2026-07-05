@@ -68,22 +68,56 @@ Algo:
 3. Create array int[] pos and set it (0,0).
 4. Create a int var direction to store direction (0=North, 1=East, 2=South, 3=West). 
 5. Get the first command from the commands[] array.
-6. 
+6. For int i=0 to i<commands.length (increament i++).
+7. Check if the commands[i] == -1 or == -2.
+8. Else 
+9. switch (direction)
+
 7. Check Turn and calculate the direction 
 8. Else proceed towards the point.
 */
 
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
-        int edist = 0;
-        int x = 0;
-        int y = 0;
-        int[] currentPos = {x,y};
+        int eDist=0;
+        int x=0;
+        int y=0;
+        int direction=0; //0=North, 1=East, 2=South, 3=West
         for(int i=0; i<commands.length; i++) {
-            System.out.println(commands[i]);
-            
+            if(commands[i]==-1 || commands[i]==-2) {
+                if(commands[i]==-1) {
+                    
+                }
+            }
+            else {
+                switch(direction) {
+                    case: 0 {
+                        //North
+                        y=commands[i];
+                    }
+                    break;
+                    case: 1 {
+                        //East
+                        x=commands[i];
+                    }
+                    break;
+                    case: 2 {
+                        //South
+                        y=-commands[i];
+                    }
+                    break;
+                    case: 3 {
+                        //West
+                        x=-commands[i];
+                    }
+                    break;
+                    default {
+                        System.out.println("Error in direction.");
+                    }
+                }
+            }
         }
-        return edist;
+        eDist = (x*x) + (y*y);
     }
 }
 
