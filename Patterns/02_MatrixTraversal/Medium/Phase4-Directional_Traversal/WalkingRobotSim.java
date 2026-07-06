@@ -90,11 +90,11 @@ class Solution {
                 if(direction<=3) {
                     if(commands[i]==-1) {
                         //Right Turn
-                        Math.abs(direction+1);
+                        Math.abs(direction++);
                     }
                     if(commands[i]==-2) {
                         //Left Turn
-                        Math.abs(direction-1);
+                        Math.abs(direction--);
                     }
                 }
                 System.out.println("direction:"+direction);
@@ -138,14 +138,23 @@ class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
         Solution s = new Solution();
-        int[] cmd = {4,-1,3};
-        int[][] obs = {{}};
+        //int[] cmd = {4,-1,3};
+        int[] cmd = {4,-1,4,-2,4};
+        int[][] obs = {{2,4}};
         System.out.println(s.robotSim(cmd,obs));
     }
 }
 
 /*
 Output:
+
+Start small. Ship something.
+direction:1
+x=3
+y=4
+25
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 direction:0
@@ -163,6 +172,12 @@ Notes:
 TURN:
 -1: Turn right 90.
 -2: Turn left 90.
+
+Obstacle:
+If obstacle is Encountered.
+- Stop the current Forward command.
+- Search for the Next Turn command.
+- Proceed with the Next Forward command.
 
 Directions:
 - North: 
