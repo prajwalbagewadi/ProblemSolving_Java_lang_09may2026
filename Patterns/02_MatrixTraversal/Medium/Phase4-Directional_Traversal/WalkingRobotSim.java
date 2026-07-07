@@ -100,6 +100,21 @@ class Solution {
                 System.out.println("direction:"+direction);
             }
             else {
+                if(x==obstacles[0][0] || y==obstacles[0][1]) {
+                   if(x==obstacles[0][0]) {
+                       x=x--;
+                   }
+                   if(y==obstacles[0][1]) {
+                      y=y--;
+                   }
+                   //find the next turn.
+                   int t = i;
+                   while(commands[t]!==-1 || commands[t]==-2) {
+                       i++;
+                   }
+                   //assigning the t val to i to execute turn and proceed further;
+                   i = t;
+                }
                 switch(direction) {
                     case 0: { 
                         //North
@@ -147,6 +162,14 @@ class Main {
 
 /*
 Output:
+
+ERROR!
+Main.java:112: error: illegal start of expression
+                   while(commands[t]!==-1 || commands[t]==-2) {
+                                      ^
+1 error
+
+=== Code Exited With Errors ===
 
 Start small. Ship something.
 direction:1
