@@ -101,39 +101,38 @@ class Solution {
             }
             else {
                 if(x==obstacles[0][0] || y==obstacles[0][1]) {
-                   if(x==obstacles[0][0]) {
-                       x=x--;
-                   }
-                   if(y==obstacles[0][1]) {
-                      y=y--;
-                   }
-                   //find the next turn.
-                   int t = i;
-                   while(commands[t]!==-1 || commands[t]==-2) {
-                       i++;
-                   }
-                   //assigning the t val to i to execute turn and proceed further;
-                   i = t;
+                    if(x==obstacles[0][0]) {
+                        x=x--;
+                    }
+                    if(y==obstacles[0][1]) {
+                        y=y--;
+                    }
+                    System.out.println(obstacles[0][0]+","+obstacles[0][1]+"obstacle detected.");
+                    System.out.println("x="+x+" "+"y="+y);
                 }
                 switch(direction) {
                     case 0: { 
                         //North
                         y=commands[i];
+                        System.out.println("y="+y);
                     }
                     break;
                     case 1: {
                         //East
                         x=commands[i];
+                        System.out.println("x="+x);
                     }
                     break;
                     case 2: {
                         //South
                         y=-commands[i];
+                        System.out.println("y="+y);
                     }
                     break;
                     case 3: {
                         //West
                         x=-commands[i];
+                        System.out.println("x="+x);
                     }
                     break;
                     default: {
@@ -162,6 +161,23 @@ class Main {
 
 /*
 Output:
+
+//observed that x fails to update.
+Start small. Ship something.
+y=4
+direction:1
+2,4obstacle detected.
+x=0 y=4
+x=4
+direction:0
+2,4obstacle detected.
+x=4 y=4
+y=4
+x=4
+y=4
+32
+
+=== Code Execution Successful ===
 
 ERROR!
 Main.java:112: error: illegal start of expression
