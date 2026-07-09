@@ -78,7 +78,41 @@ Algo:
 */
 
 import java.lang.Math;
+ 
+class Solution {
+    public int robotSim(int[] commands, int[][] obstacles) {
+        int eDist=0;
+        int x=0;
+        int y=0;
+        int direction=0; //0=North, 1=East, 2=South, 3=West
+        int steps=0;
+        for(int i=0; i<commands.length; i++) {
+            // check if command is a turn. Execute and set direction.
+            if(commands[i]==-1 || commands[i]==-2) {
+                !
+                if(direction<=3) {
+                    if(commands[i]==-1) {
+                        //Right Turn
+                        Math.abs(direction++);
+                    }
+                    if(commands[i]==-2) {
+                        //Left Turn
+                        Math.abs(direction--);
+                    }
+            }
+            // forward command.
+            else {
+                steps=commands[i];
+                switch(direction) {
+                    
+                }
+            }
+        }
+        
+    }
+}
 
+/*
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int eDist=0;
@@ -147,6 +181,7 @@ class Solution {
         return eDist;
     }
 }
+*/
 
 class Main {
     public static void main(String[] args) {
