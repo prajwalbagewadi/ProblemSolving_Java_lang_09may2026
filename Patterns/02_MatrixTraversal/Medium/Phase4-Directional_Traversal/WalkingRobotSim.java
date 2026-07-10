@@ -79,39 +79,6 @@ Algo:
 
 import java.lang.Math;
  
-class Solution {
-    public int robotSim(int[] commands, int[][] obstacles) {
-        int eDist=0;
-        int x=0;
-        int y=0;
-        int direction=0; //0=North, 1=East, 2=South, 3=West
-        int steps=0;
-        for(int i=0; i<commands.length; i++) {
-            // check if command is a turn. Execute and set direction.
-            if(commands[i]==-1 || commands[i]==-2) {
-                !
-                if(direction<=3) {
-                    if(commands[i]==-1) {
-                        //Right Turn
-                        Math.abs(direction++);
-                    }
-                    if(commands[i]==-2) {
-                        //Left Turn
-                        Math.abs(direction--);
-                    }
-            }
-            // forward command.
-            else {
-                steps=commands[i];
-                switch(direction) {
-                    
-                }
-            }
-        }
-        
-    }
-}
-
 /*
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
@@ -183,6 +150,100 @@ class Solution {
 }
 */
 
+class Solution {
+    public int robotSim(int[] commands, int[][] obstacles) {
+        int eDist=0;
+        int x=0;
+        int y=0;
+        int direction=0; //0=North, 1=East, 2=South, 3=West
+        int steps=0;
+        int s;
+        int i=0;
+        while(i<commands.length) {
+            // check if command is a turn. Execute and set direction.
+            if(commands[i]==-1 || commands[i]==-2) {
+                if(direction<=3) {
+                    if(commands[i]==-1) {
+                        //Right Turn
+                        direction=Math.abs(direction++);
+                    }
+                    if(commands[i]==-2) {
+                        //Left Turn
+                        direction=Math.abs(direction--);
+                    }
+                }
+            }
+            // forward command.
+            else {
+                steps=commands[i];
+                switch(direction) {
+                    case 0: {
+                        //North
+                        s=y;
+                        while(s<commands[i]) {
+                            if(y==obstacles[0][1]) {
+                                y--;
+                                break;
+                            }
+                            s++;
+                            y=s;
+                        }
+                    }
+                    break;
+                    case 1: {
+                        //East
+                        s=x;
+                        while(s<commands[i]) {
+                            if(x==obstacles[0][0]) { 
+                                x--;
+                                break;
+                            }
+                            s++;
+                            x=s;
+                        }
+                    }
+                    break;
+                    case 2: {
+                        //South
+                        s=y;
+                        while(s<commands[i]) {
+                            if(y==obstacles[0][1]) { 
+                                y--;
+                                break;
+                            }
+                            s++;
+                            y=-s;
+                        }
+                    }
+                    break;
+                    case 3: {
+                        //East
+                        s=x;
+                        while(s<commands[i]) {
+                            if(x==obstacles[0][0]) {
+                                x--;
+                                break;
+                            }
+                            s++;
+                            x=-s;
+                        }
+                    }
+                    break;
+                    default: {
+                        System.out.println("Error in direction.");
+                    }
+                }
+            }
+            i++;
+        }
+        System.out.println("x="+x);
+        System.out.println("y="+y);
+        eDist = (x*x) + (y*y);
+        return eDist;
+    }
+}
+
+
 class Main {
     public static void main(String[] args) {
         System.out.println("Start small. Ship something.");
@@ -196,6 +257,14 @@ class Main {
 
 /*
 Output:
+
+//x issue
+Start small. Ship something.
+x=0
+y=4
+16
+
+=== Code Execution Successful ===
 
 //observed that x fails to update.
 Start small. Ship something.
