@@ -165,11 +165,13 @@ class Solution {
                 if(direction<=3) {
                     if(commands[i]==-1) {
                         //Right Turn
-                        direction=Math.abs(direction++);
+                        //direction=Math.abs(direction++);
+                        direction++;
                     }
                     if(commands[i]==-2) {
                         //Left Turn
-                        direction=Math.abs(direction--);
+                        direction--;
+                        direction=Math.abs(direction);
                     }
                 }
             }
@@ -217,7 +219,7 @@ class Solution {
                     }
                     break;
                     case 3: {
-                        //East
+                        //West
                         s=x;
                         while(s<commands[i]) {
                             if(x==obstacles[0][0]) {
@@ -257,6 +259,13 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+x=1
+y=4
+17
+
+=== Code Execution Successful ===
 
 //x issue
 Start small. Ship something.
