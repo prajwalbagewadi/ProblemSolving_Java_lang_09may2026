@@ -155,21 +155,24 @@ class Solution {
         int eDist=0;
         int x=0;
         int y=0;
-        int direction=0; //0=North, 1=East, 2=South, 3=West
+        int direction=0; //0=North, 1=East, 2,-2=South, 3,-1=West
         int steps=0;
         int s;
         int i=0;
         while(i<commands.length) {
+            System.out.println("command:"+commands[i]);
             // check if command is a turn. Execute and set direction.
             if(commands[i]==-1 || commands[i]==-2) {
                 if(direction<=3) {
                     if(commands[i]==-1) {
                         //Right Turn
                         //direction=Math.abs(direction++);
+                        System.out.println("Right Turn");
                         direction++;
                     }
                     if(commands[i]==-2) {
                         //Left Turn
+                        System.out.println("Left Turn");
                         direction--;
                         //direction=Math.abs(direction);
                     }
@@ -189,6 +192,7 @@ class Solution {
                             }
                             s++;
                             y=s;
+                            System.out.println("step:north:y:"+y);
                         }
                     }
                     break;
@@ -202,6 +206,7 @@ class Solution {
                             }
                             s++;
                             x=s;
+                            System.out.println("step:east:x:"+x);
                         }
                     }
                     break;
@@ -216,6 +221,7 @@ class Solution {
                             }
                             s++;
                             y=-s;
+                            System.out.println("step:south:y:"+y);
                         }
                     }
                     break;
@@ -230,6 +236,7 @@ class Solution {
                             }
                             s++;
                             x=-s;
+                            System.out.println("step:west:x:"+x);
                         }
                     }
                     break;
@@ -261,6 +268,26 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+command:4
+step:north:y:1
+step:north:y:2
+step:north:y:3
+step:north:y:4
+command:-1
+Right Turn
+command:4
+step:east:x:1
+step:east:x:2
+command:-2
+Left Turn
+command:4
+x=1
+y=4
+17
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 x=1
