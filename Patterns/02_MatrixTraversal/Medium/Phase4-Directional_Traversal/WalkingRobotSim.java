@@ -171,7 +171,7 @@ class Solution {
                     if(commands[i]==-2) {
                         //Left Turn
                         direction--;
-                        direction=Math.abs(direction);
+                        //direction=Math.abs(direction);
                     }
                 }
             }
@@ -205,7 +205,8 @@ class Solution {
                         }
                     }
                     break;
-                    case 2: {
+                    case 2:
+                    case -2: {
                         //South
                         s=y;
                         while(s<commands[i]) {
@@ -218,7 +219,8 @@ class Solution {
                         }
                     }
                     break;
-                    case 3: {
+                    case -1: 
+                    case  3: {
                         //West
                         s=x;
                         while(s<commands[i]) {
