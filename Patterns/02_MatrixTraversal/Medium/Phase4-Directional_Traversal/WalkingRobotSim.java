@@ -161,6 +161,7 @@ class Solution {
         int i=0;
         while(i<commands.length) {
             System.out.println("command:"+commands[i]);
+            System.out.println("x:"+x+" y:"+y);
             // check if command is a turn. Execute and set direction.
             if(commands[i]==-1 || commands[i]==-2) {
                 if(direction<=3) {
@@ -186,13 +187,14 @@ class Solution {
                     case 0: {
                         //North
                         s=y;
-                        while(s<commands[i]) {
+                        while(s<=(y+commands[i])) {
                             if(y==obstacles[0][1]) {
                                 y--;
                                 break;
                             }
-                            s++;
                             y=s;
+                            s++;
+                            //y=s;
                             System.out.println("step:north:y:"+y);
                         }
                     }
