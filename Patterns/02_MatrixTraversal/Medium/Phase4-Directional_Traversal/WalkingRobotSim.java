@@ -181,6 +181,7 @@ class Solution {
             // forward command.
             else {
                 steps=commands[i];
+                System.out.println("direction:"+direction);
                 switch(direction) {
                     case 0: {
                         //North
