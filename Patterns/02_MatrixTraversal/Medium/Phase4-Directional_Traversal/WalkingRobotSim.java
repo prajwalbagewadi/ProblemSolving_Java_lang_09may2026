@@ -181,13 +181,14 @@ class Solution {
             }
             // forward command.
             else {
-                steps=commands[i];
+                //steps=commands[i];
                 System.out.println("direction:"+direction);
                 switch(direction) {
                     case 0: {
                         //North
+                        steps=y+commands[i];
                         s=y;
-                        while(s<=(y+commands[i])) {
+                        while(s<=steps) {
                             if(y==obstacles[0][1]) {
                                 y--;
                                 break;
@@ -201,14 +202,16 @@ class Solution {
                     break;
                     case 1: {
                         //East
+                        steps=x+commands[i];
                         s=x;
-                        while(s<commands[i]) {
+                        while(s<=steps) {
                             if(x==obstacles[0][0]) { 
                                 x--;
                                 break;
                             }
-                            s++;
                             x=s;
+                            s++;
+                            //x=s;
                             System.out.println("step:east:x:"+x);
                         }
                     }
@@ -216,14 +219,16 @@ class Solution {
                     case 2:
                     case -2: {
                         //South
+                        steps=y+commands[i];
                         s=y;
-                        while(s<commands[i]) {
+                        while(s<=steps) {
                             if(y==obstacles[0][1]) { 
                                 y--;
                                 break;
                             }
-                            s++;
                             y=-s;
+                            s++;
+                            //y=-s;
                             System.out.println("step:south:y:"+y);
                         }
                     }
@@ -231,14 +236,16 @@ class Solution {
                     case -1: 
                     case  3: {
                         //West
+                        steps=x+commands[i];
                         s=x;
-                        while(s<commands[i]) {
+                        while(s<=steps) {
                             if(x==obstacles[0][0]) {
                                 x--;
                                 break;
                             }
-                            s++;
                             x=-s;
+                            s++;
+                            //x=-s;
                             System.out.println("step:west:x:"+x);
                         }
                     }
@@ -271,6 +278,36 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+command:4
+x:0 y:0
+direction:0
+step:north:y:0
+step:north:y:1
+step:north:y:2
+step:north:y:3
+step:north:y:4
+command:-1
+x:0 y:4
+Right Turn
+command:4
+x:0 y:4
+direction:1
+step:east:x:0
+step:east:x:1
+step:east:x:2
+command:-2
+x:1 y:4
+Left Turn
+command:4
+x:1 y:4
+direction:0
+x=1
+y=3
+10
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 command:4
