@@ -75,6 +75,13 @@ Algo:
 
 7. Check Turn and calculate the direction 
 8. Else proceed towards the point.
+
+Algo2:
+1. Start.
+2. Create two vars x and y and set initial to 0.
+3. Create var direction and set initial to north/0.
+4. Create var steps and set initial to 0.
+5. 
 */
 
 import java.lang.Math;
