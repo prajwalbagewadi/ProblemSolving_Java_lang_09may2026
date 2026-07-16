@@ -80,8 +80,19 @@ Algo2:
 1. Start.
 2. Create two vars x and y and set initial to 0.
 3. Create var direction and set initial to north/0.
+   a. North = 0.
+   b. East = 1,-3.
+   c. South = 2,-2.
+   d. West = -1,3.
 4. Create var steps and set initial to 0.
-5. 
+5. For i=0 to i<commands.length (increment i++).
+6. Check if the commands[i] is a turn (-1,-2). //eliminating step 6 for optimization
+7. Check if the commands[i] = -1.
+8. Increament direction++.
+9. Check if the commands[i] = -2.
+10. Decrement direction--.
+
+
 */
 
 import java.lang.Math;
