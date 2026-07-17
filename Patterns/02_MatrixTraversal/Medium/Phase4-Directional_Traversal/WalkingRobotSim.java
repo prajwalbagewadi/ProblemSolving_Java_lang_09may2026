@@ -91,6 +91,10 @@ Algo2:
 8. Increament direction++.
 9. Check if the commands[i] = -2.
 10. Decrement direction--.
+11. Else 
+12. Set steps = commands[i].
+13. Switch(direction):
+14. 
 
 
 */
