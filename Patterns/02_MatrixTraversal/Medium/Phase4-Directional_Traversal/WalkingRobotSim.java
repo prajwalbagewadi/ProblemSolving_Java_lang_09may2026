@@ -94,7 +94,7 @@ Algo2:
 11. Else 
 12. Set steps = commands[i].
 13. Switch(direction):
-14. 
+14. Case 0: for (i=y to i<(y+steps); increament i++) if(i==0){i=1;}  
 
 
 */
@@ -468,4 +468,76 @@ Commands = 4,-1,3
         - (1,4)
         - (2,4)
         - (3,4) Final pos (3,4) EAST.
+
+Logic for Steps:
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Start small. Ship something.");
+        int steps=4;
+        int y=0;
+        for(int i=y; i<=steps; i++) {
+            if(i==0){i=1;}
+            System.out.println(i);
+            y=i;
+        }
+        System.out.println("y="+y);
+        steps=y+4;
+        for(int i=y; i<=steps; i++) {
+            if(i==0){i=1;}
+            System.out.println(i);
+            y=i;
+        }
+        System.out.println("y="+y);
+    }
+}
+ 
+ /*
+ output:
+ 
+ Start small. Ship something.
+1
+2
+3
+4
+y=4
+4
+5
+6
+7
+8
+y=8
+
+=== Code Execution Successful ===
+ 
+ Start small. Ship something.
+1
+2
+3
+4
+y=4
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+
 */
