@@ -99,10 +99,26 @@ Algo2:
 16. For (i=y to i<=steps; increament i++) 
 17. Check if(i==0) {i=1;}  
 18. Set y=i.
-19. Case 1:
-20. Case -3:
-
-
+19. Case -1:
+20. Case 3: (East)
+21. Set steps = x+commands[i];
+22. For (i=x to i<=steps; increament i++)
+23. Check if(i==0) {i=1;}
+24. Set x=i.
+25. Case 2:
+26. Case -2: (South)
+27. Set steps = x+commands[i];
+28. For (i=x to i<=steps; increament i++)
+29. Check if(i==0) {i=1;}
+30. Set x=-i.
+31. Case -1:
+26. Case 3: (West)
+27. Set steps = y+commands[i];
+28. For (i=y to i<=steps; increament i++)
+29. Check if(i==0) {i=1;}
+30. Set y=-i.
+31. Default: Print("error in direction.")
+32. Return (x*x)+(y*y).
 */
 
 import java.lang.Math;
