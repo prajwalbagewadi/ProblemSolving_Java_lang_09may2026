@@ -92,9 +92,15 @@ Algo2:
 9. Check if the commands[i] = -2.
 10. Decrement direction--.
 11. Else 
-12. Set steps = commands[i].
+12. Set steps = commands[i]. //can be skipped
 13. Switch(direction):
-14. Case 0: for (i=y to i<(y+steps); increament i++) if(i==0){i=1;}  
+14. Case 0: (North)
+15. Set steps = y+commands[i];
+16. For (i=y to i<=steps; increament i++) 
+17. Check if(i==0) {i=1;}  
+18. Set y=i.
+19. Case 1:
+20. Case -3:
 
 
 */
