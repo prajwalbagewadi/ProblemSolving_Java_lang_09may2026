@@ -96,29 +96,33 @@ Algo2:
 13. Switch(direction):
 14. Case 0: (North)
 15. Set steps = y+commands[i];
-16. For (i=y to i<=steps; increament i++) 
-17. Check if(i==0) {i=1;}  
-18. Set y=i.
-19. Case -1:
-20. Case 3: (East)
-21. Set steps = x+commands[i];
-22. For (i=x to i<=steps; increament i++)
-23. Check if(i==0) {i=1;}
-24. Set x=i.
-25. Case 2:
-26. Case -2: (South)
-27. Set steps = x+commands[i];
-28. For (i=x to i<=steps; increament i++)
-29. Check if(i==0) {i=1;}
-30. Set x=-i.
-31. Case -1:
-26. Case 3: (West)
-27. Set steps = y+commands[i];
-28. For (i=y to i<=steps; increament i++)
-29. Check if(i==0) {i=1;}
-30. Set y=-i.
-31. Default: Print("error in direction.")
-32. Return (x*x)+(y*y).
+16. For (s=y to s<=steps; increament s++) 
+17. Check if(s==0) {s=1;}  
+18. Set y=s.
+19. break;
+20. Case 1:
+21. Case -3: (East)
+22. Set steps = x+commands[i];
+23. For (s=x to s<=steps; increament s++)
+24. Check if(s==0) {s=1;}
+24. Set x=s.
+25. break.
+26. Case 2:
+27. Case -2: (South)
+28. Set steps = x+commands[i];
+29. For (s=x to s<=steps; increament s++)
+30. Check if(s==0) {s=1;}
+31. Set x=-s.
+32. break.
+33. Case -1:
+34. Case 3: (West)
+35. Set steps = y+commands[i];
+36. For (i=y to i<=steps; increament i++)
+37. Check if(i==0) {i=1;}
+38. Set y=-i.
+39. break.
+40. Default: Print("error in direction.")
+41. Return (x*x)+(y*y).
 */
 
 import java.lang.Math;
@@ -561,5 +565,4 @@ y=4
 18
 19
 20
-
 */
