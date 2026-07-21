@@ -198,6 +198,7 @@ class Solution {
 }
 */
 
+/*
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int eDist=0;
@@ -311,6 +312,39 @@ class Solution {
         return eDist;
     }
 }
+*/
+
+class Solution {
+    public int robotSim(int[] commands, int[][] obstacles) {
+        int edist=0;
+        int x=0;
+        int y=0;
+        /*
+        -1=turn right 90;
+        -2=turn left 90;
+        north=0;
+        east=1,-3;
+        south=2,-2;
+        west=3,-1;
+        */
+        int direction=0;
+        for(int i=0; i<commands.length; i++) {
+            if(commands[i]==-1) {
+                //turn right 90.
+                direction++;
+                System.out.println("current direction :"+direction);
+            }
+            if(commands[i]==-2) {
+                //turn left 90.
+                direction--;
+                System.out.println("current direction :"+direction);
+            }
+        }
+        edist=(x*x)+(y*y);
+        return edist;
+    }
+}
+
 
 
 class Main {
@@ -326,6 +360,13 @@ class Main {
 
 /*
 Output:
+
+Start small. Ship something.
+current direction :1
+current direction :0
+0
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 command:4
