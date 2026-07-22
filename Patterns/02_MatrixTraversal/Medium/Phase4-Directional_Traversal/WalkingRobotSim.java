@@ -343,6 +343,7 @@ class Solution {
             else {
                 switch(direction) {
                     case 0: {
+                        //north
                         steps=y+commands[i]
                         for(int s=y; s<=steps; s++) {
                             if(s==0) {
@@ -350,11 +351,14 @@ class Solution {
                             }
                             //obstacle logic inprogress 
                             for(int r=0; r<obstacles.length; r++) {
-                                if(x+1==obstacles[r][0] && y+1==obstacles[r][1]) {
+                                if(x==obstacles[r][0] && y+1==obstacles[r][1]) {
+                                    if(y+1==obstacles[r][1]){
+                                        break;
+                                    }
                                     break;
                                 }
                             }
-                            y=s;
+                            //y=s;
                         }
                     }
                     break;
