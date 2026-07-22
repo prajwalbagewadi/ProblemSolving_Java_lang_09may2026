@@ -198,7 +198,7 @@ class Solution {
 }
 */
 
-/*
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int eDist=0;
@@ -312,7 +312,7 @@ class Solution {
         return eDist;
     }
 }
-*/
+
 
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
@@ -328,6 +328,7 @@ class Solution {
         west=3,-1;
         */
         int direction=0;
+        int steps=0;
         for(int i=0; i<commands.length; i++) {
             if(commands[i]==-1) {
                 //turn right 90.
@@ -338,6 +339,26 @@ class Solution {
                 //turn left 90.
                 direction--;
                 System.out.println("current direction :"+direction);
+            }
+            else {
+                switch(direction) {
+                    case 0: {
+                        steps=y+commands[i]
+                        for(int s=y; s<=steps; s++) {
+                            if(s==0) {
+                                s=1;
+                            }
+                            //obstacle logic inprogress 
+                            for(int r=0; r<obstacles.length; r++) {
+                                if(x+1==obstacles[r][0] && y+1==obstacles[r][1]) {
+                                    break;
+                                }
+                            }
+                            y=s;
+                        }
+                    }
+                    break;
+                }
             }
         }
         edist=(x*x)+(y*y);
