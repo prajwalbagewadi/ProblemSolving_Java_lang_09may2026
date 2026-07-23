@@ -329,6 +329,7 @@ class Solution {
         */
         int direction=0;
         int steps=0;
+        boolean flag=true;
         for(int i=0; i<commands.length; i++) {
             if(commands[i]==-1) {
                 //turn right 90.
@@ -346,25 +347,26 @@ class Solution {
                         //north
                         steps=y+commands[i]
                         for(int s=y; s<=steps; s++) {
+                           flag=true;
                             if(s==0) {
                                 s=1;
                             }
                             //obstacle logic inprogress 
                             for(int r=0; r<obstacles.length; r++) {
-                                if(x==obstacles[r][0] && y+1==obstacles[r][1]) {
+                                if(x==obstacles[r][0] ) {
                                     if(y+1==obstacles[r][1]){
+                                        flag=false;
                                         break;
                                     }
-                                    break;
                                 }
+                            }
+                            if(flag==true) {
+                                y=s;
                             }
                             //y=s;
                         }
                     }
                     break;
-                }
-            }
-        }
         edist=(x*x)+(y*y);
         return edist;
     }
