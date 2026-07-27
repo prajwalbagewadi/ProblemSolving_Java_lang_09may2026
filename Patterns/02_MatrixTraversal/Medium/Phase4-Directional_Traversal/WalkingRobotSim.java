@@ -762,7 +762,7 @@ Algo2:
 41. Return (x*x)+(y*y).
 */
 
-import java.lang.Math;
+//import java.lang.Math;
  
 /*
 class Solution {
@@ -951,6 +951,13 @@ class Solution {
 }
 */
 
+/*
+Testcase failed 
+commands = [9,4,-2,7,5]
+obstacles =
+[[-4,-2],[4,-5],[-2,4],[1,-1],[4,-2],[2,0],[4,-4],[-2,-1],[-2,-4],[5,3
+*/
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         int edist=0;
@@ -999,6 +1006,7 @@ class Solution {
                             }
                             if(flag==true) {
                                 y=s;
+                                System.out.println("y:"+y);
                             }
                             //y=s;
                         }
@@ -1024,6 +1032,7 @@ class Solution {
                             }
                             if(flag==true) {
                                 x=s;
+                                System.out.println("x:"+x);
                             }
                         }
                     }
@@ -1050,6 +1059,7 @@ class Solution {
                             }
                             if(flag==true) {
                                 y=s;
+                                System.out.println("y:"+y);
                             }
                             //y=s;
                         }
@@ -1064,7 +1074,7 @@ class Solution {
                         for(int s=x; s<=steps; s++) {
                            flag=true;
                             if(s==0) {
-                                s=1;
+                                s=-1;
                             }
                             //obstacle logic inprogress 
                             for(int r=0; r<obstacles.length; r++) {
@@ -1077,6 +1087,7 @@ class Solution {
                             }
                             if(flag==true) {
                                 x=s;
+                                System.out.println("x:"+x);
                             }
                         }
                     }
@@ -1086,8 +1097,11 @@ class Solution {
                     }
                 }
             }
+            System.out.println("x:"+x+"y:"+y);
         edist=(x*x)+(y*y);
-        return edist;
+        //return edist;
+       }
+       return edist;
     }
 }
 
@@ -1106,6 +1120,29 @@ class Main {
 
 /*
 Output:
+
+//correct Output generated for the provided input
+Start small. Ship something.
+y:1
+y:2
+y:3
+y:4
+x:0y:4
+current direction :1
+x:0y:4
+x:1
+x:1y:4
+current direction :0
+x:1y:4
+y:4
+y:5
+y:6
+y:7
+y:8
+x:1y:8
+65
+
+=== Code Execution Successful ===
 
 Start small. Ship something.
 current direction :1
