@@ -68,6 +68,7 @@ class Solution {
         int x = 0;
         int y = 0;
         int direction = 0; //north
+        int steps;
         
         for(int c=0; c<commands.length; c++) {
             if(commands[c]==-1) {
@@ -92,6 +93,24 @@ class Solution {
                 }
                 else {
                     direction--;
+                }
+            }
+            else {
+                switch(direction) {
+                    //north
+                    case 0: {
+                        steps = y + commands[c];
+                        for(int s=0; s<=steps; s++) {
+                            for(int obs=0; obs<obstacles.length; obs++) {
+                                if(x==obstacles[obs][0]) {
+                                    if(y+1==obstacles[obs][1]) {
+                                        //stop
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
                 }
             }
         }
