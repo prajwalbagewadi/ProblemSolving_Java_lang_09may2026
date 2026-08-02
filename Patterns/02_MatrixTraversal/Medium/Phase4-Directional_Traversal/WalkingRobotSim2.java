@@ -107,6 +107,9 @@ class Solution {
                                         //stop
                                     }
                                 }
+                                else {
+                                    y=s;
+                                }
                             }
                         }
                     }
