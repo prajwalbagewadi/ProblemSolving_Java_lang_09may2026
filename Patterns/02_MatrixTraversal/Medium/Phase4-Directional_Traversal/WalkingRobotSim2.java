@@ -61,6 +61,24 @@ commands[i] is either -2, -1, or an integer in the range [1, 9].
 The answer is guaranteed to be less than 231.
 */
 
+/*
+You're still making the same logical mistake. Instead of looking at the code, think about this scenario.
+Suppose:
+Robot is at (0, 0)
+Obstacles are:
+(5, 5)
+(0, 2)
+Command = 3
+The robot wants to move to (0,1), (0,2), (0,3).
+Now, on the first obstacle (5,5):
+x == 5 is false.
+Your else executes.
+You do y = s.
+Have you checked the second obstacle (0,2) yet?
+No.
+So you've already moved before checking all obstacles.
+*/
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         
@@ -100,16 +118,18 @@ class Solution {
                     //north
                     case 0: {
                         steps = y + commands[c];
-                        for(int s=0; s<=steps; s++) {
+                        for(int s=y; s<=steps; s++) {
                             for(int obs=0; obs<obstacles.length; obs++) {
                                 if(x==obstacles[obs][0]) {
-                                    if(y+1==obstacles[obs][1]) {
+                                    if(s+1==obstacles[obs][1]) {
                                         //stop
                                     }
-                                }
-                                else {
-                                    y=s;
-                                }
+                                    else {
+                                        break;
+                                    }
+                            }
+                            else {
+                                y=s;
                             }
                         }
                     }
