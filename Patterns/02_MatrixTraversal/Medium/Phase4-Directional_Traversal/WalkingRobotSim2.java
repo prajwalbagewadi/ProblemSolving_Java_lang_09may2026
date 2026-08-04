@@ -62,6 +62,18 @@ The answer is guaranteed to be less than 231.
 */
 
 /*
+issues:
+
+1. You're still overwriting flag
+Suppose:
+obstacles = [(0,2), (0,5)]
+Trying to move to (0,2).
+First obstacle → matches → flag = true
+Second obstacle → doesn't match → your code does flag = false
+So at the end, flag is false, even though the robot should be blocked.
+Once you find one blocking obstacle, should a later obstacle be allowed to change the answer?
+The answer is no.
+
 You're still making the same logical mistake. Instead of looking at the code, think about this scenario.
 Suppose:
 Robot is at (0, 0)
@@ -87,7 +99,7 @@ class Solution {
         int y = 0;
         int direction = 0; //north
         int steps;
-        
+        boolean flag = false;
         for(int c=0; c<commands.length; c++) {
             if(commands[c]==-1) {
                 //right turn 90.
@@ -119,18 +131,23 @@ class Solution {
                     case 0: {
                         steps = y + commands[c];
                         for(int s=y; s<=steps; s++) {
+                            flag = false;
                             for(int obs=0; obs<obstacles.length; obs++) {
                                 if(x==obstacles[obs][0]) {
                                     if(s+1==obstacles[obs][1]) {
                                         //stop
+                                        flag = true;
                                     }
                                     else {
-                                        break;
+                                        flag = false;
                                     }
                             }
                             else {
-                                y=s;
+                                flag = false;
                             }
+                        }
+                        if(flag==false) {
+                            y=s;
                         }
                     }
                     break;
