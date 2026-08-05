@@ -64,6 +64,11 @@ The answer is guaranteed to be less than 231.
 /*
 issues:
 
+Iteration 1 (s = 1)
+Check next square (0,2) → obstacle found.
+flag = true.
+y is not updated.
+
 1. You're still overwriting flag
 Suppose:
 obstacles = [(0,2), (0,5)]
@@ -130,24 +135,20 @@ class Solution {
                     //north
                     case 0: {
                         steps = y + commands[c];
+                        flag = false;
                         for(int s=y; s<=steps; s++) {
-                            flag = false;
+                            if(s==0) {
+                                s=1;
+                            }
                             for(int obs=0; obs<obstacles.length; obs++) {
-                                if(x==obstacles[obs][0]) {
-                                    if(s+1==obstacles[obs][1]) {
-                                        //stop
-                                        flag = true;
-                                    }
-                                    else {
-                                        flag = false;
-                                    }
+                                if(x==obstacles[obs][0] && s+1==obstacles[obs][1]) {
+                                    //stop
+                                    flag = true;
+                                }
                             }
-                            else {
-                                flag = false;
+                            if(flag==false) {
+                                y=s;
                             }
-                        }
-                        if(flag==false) {
-                            y=s;
                         }
                     }
                     break;
