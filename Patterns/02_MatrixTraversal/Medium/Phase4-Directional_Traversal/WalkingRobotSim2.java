@@ -64,6 +64,10 @@ The answer is guaranteed to be less than 231.
 /*
 issues:
 
+Read a article regarding https://www.himanshu-saini.com/dsa/walking-robot-simulation
+article talks about constant obstacle checking time using hashset
+
+
 Iteration 1 (s = 1)
 Check next square (0,2) → obstacle found.
 flag = true.
