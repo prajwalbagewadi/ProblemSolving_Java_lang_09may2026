@@ -100,6 +100,21 @@ No.
 So you've already moved before checking all obstacles.
 */
 
+/*
+Algo3:
+1. Create 3 vars direction, x, y.
+2. For loop for iterating through each command(n)
+3. Check if command is -1 or -2.
+4. else:
+5. Switch (direction):
+6. Case 0: //move north
+7. Calculate Steps = y+commands[i]
+8. For s=y; s<=Steps; s++
+9. Check if(hashcode(x+(s+1)==hashcode(obstacles(i))
+10. Stop and move to next command.
+11. else: y=s.
+12. Break. 
+*/
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         
