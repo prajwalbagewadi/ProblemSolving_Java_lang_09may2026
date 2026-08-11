@@ -115,6 +115,21 @@ Algo3:
 11. else: y=s.
 12. Break. 
 */
+
+/*
+Notes2:
+If the user evaluates the expression for total number of co-ords
+-3 * 104 <= xi, yi <= 3*104
+-30000 <= xi, yi <= 30000
+The distance or span between -30000 to 30000
+Is 60000
+
+For Hashing we will be using the number 60000 as a encoder 
+Key = x * M(encoder)+ y
+
+Import java.util.HashSet;
+*/
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         
