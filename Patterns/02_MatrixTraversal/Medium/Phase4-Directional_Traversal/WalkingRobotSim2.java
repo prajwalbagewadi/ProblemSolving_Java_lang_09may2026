@@ -127,7 +127,31 @@ Is 60000
 For Hashing we will be using the number 60000 as a encoder 
 Key = x * M(encoder)+ y
 
-Import java.util.HashSet;
+Why M=60001?
+The val
+
+
+demoCode:
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+      System.out.println("Hello, World!");
+      
+      
+      int[][] obs = {{2,4}};
+      HashSet<Integer> obHash = new HashSet<Integer>();
+      obHash.add(obs[0][0]*60001+obs[0][1]);
+      System.out.println(obHash);
+      System.out.println("exp evaluation="+(2*60001+4));
+    }
+}
+
+
+//output:
+//Hello, World!
+//[120006]
+//exp evaluation=120006
 */
 
 class Solution {
