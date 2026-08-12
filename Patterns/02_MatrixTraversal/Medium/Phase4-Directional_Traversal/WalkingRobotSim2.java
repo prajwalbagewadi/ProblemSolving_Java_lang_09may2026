@@ -128,8 +128,8 @@ For Hashing we will be using the number 60000 as a encoder
 Key = x * M(encoder)+ y
 
 Why M=60001?
-The val
-
+The val of M should be larger then the span of (yi).
+And to avoid 'Hash collision'.
 
 demoCode:
 import java.util.HashSet;
