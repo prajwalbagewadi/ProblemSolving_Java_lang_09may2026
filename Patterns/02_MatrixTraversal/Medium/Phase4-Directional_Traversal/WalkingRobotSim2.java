@@ -154,6 +154,32 @@ public class Main {
 //exp evaluation=120006
 */
 
+class Solution2 {
+    public int robotSim(int[] commands, int[][ obstacles) {
+        
+        int x=0;
+        int y=0;
+        int direction=0; 
+        
+        /*
+          north=0
+          east=1,-3
+          south=2,-2
+          west=-1,3
+        */  
+        
+        
+        for(int c=0; c<commands.length; c++) {
+           
+            if(commands[c]==-1) {
+                //right 90
+                
+                
+            }
+        }
+    }
+}
+
 class Solution {
     public int robotSim(int[] commands, int[][] obstacles) {
         
