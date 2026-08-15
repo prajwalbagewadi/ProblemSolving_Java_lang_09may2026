@@ -155,29 +155,47 @@ public class Main {
 */
 
 class Solution2 {
-    public int robotSim(int[] commands, int[][ obstacles) {
+  public int robotSim(int[] commands, int[][] obstacles) {
+
+    int x=0;
+    int y=0;
+    int direction=0; 
         
-        int x=0;
-        int y=0;
-        int direction=0; 
-        
-        /*
-          north=0
-          east=1,-3
-          south=2,-2
-          west=-1,3
-        */  
-        
-        
-        for(int c=0; c<commands.length; c++) {
+    /*
+     north=0
+     east=1,-3
+     south=2,-2
+     west=-1,3
+    */  
+          
+    for(int c=0; c<commands.length; c++) {
            
-            if(commands[c]==-1) {
-                //right 90
-                
-                
-            }
+      if(commands[c]==-1) {
+        //right 90
+        if(direction==3) {
+          direction=0;
+        }  
+        else {
+          direction++;
         }
+        System.out.println("direction="+direction);  
+      }
+
+      if(commands[c]==-2) {
+        //right 90
+        if(direction==-3) {
+          direction=0;
+        }  
+        else {
+          direction--;
+        }
+        System.out.println("direction="+direction);  
+      }
+
     }
+    
+    return 0;
+  }
 }
 
 class Solution {
@@ -239,15 +257,37 @@ class Solution {
                 }
             }
         }
+    return 0;
     }
 }
 
 class Main {
     public static void main(String[] args) {
-        System.out.println("Start small. Ship something.");
-        Solution s = new Solution();
-        int[] cmd = {4,-1,3};
-        int[][] obs = {};
-        System.out.println(s.robotSim(cmd,obs));
+      System.out.println("Start small. Ship something.");
+      // Solution s = new Solution();
+      // int[] cmd = {4,-1,3};
+      // int[][] obs = {};
+      // System.out.println(s.robotSim(cmd,obs));
+      
+      Solution2 s2 = new Solution2();
+      int[] cmd = {-1,-1,-1,-1,-2,-2,-2,-2};
+      int[][] obs = {{2,4}};
+      System.out.println(s2.robotSim(cmd,obs));
     }
 }
+
+/*
+Output:
+
+Start small. Ship something.
+direction=1
+direction=2
+direction=3
+direction=0
+direction=-1
+direction=-2
+direction=-3
+direction=0
+0
+
+*/
