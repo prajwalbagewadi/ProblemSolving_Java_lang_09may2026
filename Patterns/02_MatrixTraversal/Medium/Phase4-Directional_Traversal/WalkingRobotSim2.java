@@ -160,6 +160,13 @@ class Solution2 {
     int x=0;
     int y=0;
     int direction=0; 
+    int steps;
+
+    //create  hash of obstacle
+    HashSet<Integer> obHash = new HashSet<Integer>();
+    for(int o=0; o<obstacles.length; o++) {
+      obHash.add(obstacles.[o][0]*60001+obstacles.[o][1]);
+    }
         
     /*
      north=0
@@ -171,7 +178,7 @@ class Solution2 {
     for(int c=0; c<commands.length; c++) {
            
       if(commands[c]==-1) {
-        //right 90
+        //turn right 90
         if(direction==3) {
           direction=0;
         }  
@@ -181,8 +188,8 @@ class Solution2 {
         System.out.println("direction="+direction);  
       }
 
-      if(commands[c]==-2) {
-        //right 90
+      else if(commands[c]==-2) {
+        //turn left 90
         if(direction==-3) {
           direction=0;
         }  
@@ -191,7 +198,24 @@ class Solution2 {
         }
         System.out.println("direction="+direction);  
       }
-
+      
+      else {
+        switch(direction) {
+          case 0: {
+            //north
+            steps=y+commands[c];
+            for(int s=y; s<=steps; s++) {
+              if(s==0) {
+                s=1;
+              }
+              if(obHash.contains(x*60001+(s+1))) {
+                
+              }
+            }  
+          }
+        }
+      }
+       
     }
     
     return 0;
