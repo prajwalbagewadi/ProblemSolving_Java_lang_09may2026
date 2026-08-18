@@ -209,9 +209,13 @@ class Solution2 {
                 s=1;
               }
               if(obHash.contains(x*60001+(s+1))) {
-                
+                break;
               }
-            }  
+              else {
+                  y=s;
+              }
+            }
+            break;
           }
         }
       }
